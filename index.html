@@ -32,7 +32,7 @@ HTML<!DOCTYPE html>
             padding: 20px;
             min-height: 100vh;
             background: linear-gradient(to bottom, #000 0%, #220000 50%, #000 100%);
-            color: #ff2200;
+            color: #ff0000; /* Rosso puro molto più visibile */
             font-family: 'Creepster', 'Courier New', monospace;
             text-align: center;
             overflow: hidden;
@@ -43,13 +43,13 @@ HTML<!DOCTYPE html>
             justify-content: center;
         }
 
-        /* Fiamme leggere con CSS (molto più leggero del canvas) */
+        /* Fiamme leggere CSS */
         body::before {
             content: '';
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: linear-gradient(transparent, rgba(255,50,0,0.3));
+            background: linear-gradient(transparent, rgba(255,50,0,0.4));
             background-size: 100% 200%;
             animation: flames 12s linear infinite;
             pointer-events: none;
@@ -66,21 +66,25 @@ HTML<!DOCTYPE html>
             position: absolute;
             bottom: 0; left: 0;
             width: 100%; height: 50%;
-            background: radial-gradient(circle at center, rgba(255,100,0,0.4) 0%, transparent 70%);
+            background: radial-gradient(circle at center, rgba(255,100,0,0.5) 0%, transparent 70%);
             animation: pulse-flame 8s ease-in-out infinite;
             pointer-events: none;
             z-index: 1;
         }
 
         @keyframes pulse-flame {
-            0%,100% { opacity: 0.4; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(1.1); }
+            0%,100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
         }
 
         h1 {
-            font-size: clamp(2.8rem, 11vw, 7rem);
+            font-size: clamp(3rem, 12vw, 7.5rem);
             margin: 0 0 10px;
-            text-shadow: 0 0 30px #ff0000, 0 0 60px #880000;
+            text-shadow: 
+                0 0 20px #ff0000,
+                0 0 40px #ff0000,
+                0 0 60px #ff0000,
+                0 0 80px #ff0000;
             letter-spacing: clamp(8px, 3vw, 20px);
             animation: flicker 2.5s infinite alternate;
             position: relative;
@@ -89,7 +93,7 @@ HTML<!DOCTYPE html>
 
         @keyframes flicker {
             0%,100% { opacity: 1; }
-            50% { opacity: 0.85; }
+            50% { opacity: 0.9; }
         }
 
         .countdown-container {
@@ -99,56 +103,61 @@ HTML<!DOCTYPE html>
         }
 
         .countdown {
-            font-size: clamp(2.2rem, 9vw, 5.5rem);
-            letter-spacing: clamp(8px, 4vw, 25px);
-            text-shadow: 0 0 30px #ff0000, 0 0 60px #ff2200;
-            animation: glow 2s infinite alternate;
+            font-size: clamp(2.4rem, 10vw, 6rem);
+            letter-spacing: clamp(10px, 4.5vw, 28px);
+            text-shadow: 
+                0 0 20px #ff0000,
+                0 0 40px #ff0000,
+                0 0 60px #ff0000,
+                0 0 90px #ff0000;
+            animation: glow 1.8s infinite alternate;
         }
 
         @keyframes glow {
-            0% { text-shadow: 0 0 30px #ff0000; }
-            100% { text-shadow: 0 0 50px #ff3300, 0 0 80px #ff0000; }
+            0% { text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000; }
+            100% { text-shadow: 0 0 40px #ff0000, 0 0 80px #ff0000, 0 0 120px #ff0000; }
         }
 
         .label {
-            font-size: clamp(0.9rem, 3vw, 1.8rem);
+            font-size: clamp(1rem, 3.2vw, 1.9rem);
             letter-spacing: clamp(6px, 2.5vw, 15px);
             margin-top: 8px;
-            opacity: 0.9;
-            text-shadow: 0 0 10px #ff0000;
+            opacity: 0.95;
+            text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
         }
 
         p {
-            font-size: clamp(1.2rem, 3.8vw, 2.3rem);
+            font-size: clamp(1.3rem, 4vw, 2.4rem);
             margin: 15px 20px;
-            text-shadow: 0 0 20px #ff0000;
-            opacity: 0.9;
+            text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000;
+            opacity: 0.95;
             animation: pulse-text 5s infinite;
         }
 
         @keyframes pulse-text {
-            0%,100% { opacity: 0.7; }
+            0%,100% { opacity: 0.8; }
             50% { opacity: 1; }
         }
 
         .visitor-count {
-            font-size: clamp(1.3rem, 4vw, 2rem);
+            font-size: clamp(1.4rem, 4.5vw, 2.1rem);
             margin: 25px 0 10px;
-            text-shadow: 0 0 20px #ff0000;
-            opacity: 0.9;
+            text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000;
+            opacity: 0.95;
             position: relative;
             z-index: 10;
         }
 
         .visitor-count span {
-            color: #ff4400;
-            font-size: clamp(1.6rem, 5.5vw, 2.5rem);
+            color: #ff3333; /* Rosso leggermente più chiaro per il numero */
+            font-size: clamp(1.8rem, 6vw, 2.8rem);
+            text-shadow: 0 0 25px #ff0000, 0 0 50px #ff0000;
             animation: pulse-red 2s infinite;
         }
 
         @keyframes pulse-red {
-            0%,100% { text-shadow: 0 0 15px #ff0000; }
-            50% { text-shadow: 0 0 30px #ff2200; }
+            0%,100% { text-shadow: 0 0 25px #ff0000; }
+            50% { text-shadow: 0 0 50px #ff0000, 0 0 80px #ff3333; }
         }
 
         .skull {
@@ -184,7 +193,7 @@ HTML<!DOCTYPE html>
         Anime intrappolate nell'abisso: <span id="visitor-number">0</span> 💀
     </div>
 
-    <!-- Audio leggero (caricato solo al tocco) -->
+    <!-- Audio leggero -->
     <audio id="demonic-whispers" loop preload="none">
         <source src="https://cdn.pixabay.com/download/audio/2022/10/26/audio_1c5d7f1e1a.mp3?filename=horror-ambience-6664.mp3" type="audio/mpeg">
     </audio>
@@ -198,7 +207,7 @@ HTML<!DOCTYPE html>
     <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
 
     <script>
-        // Sblocca audio al primo tocco/clic
+        // Sblocca audio al tocco/clic
         const unlockAudio = () => {
             document.getElementById('demonic-whispers').play().catch(() => {});
             document.body.removeEventListener('touchstart', unlockAudio);
@@ -240,7 +249,7 @@ HTML<!DOCTYPE html>
             }
         }, 4000);
 
-        // Teschi fluttuanti leggeri (solo 1 ogni 2-3 secondi su mobile)
+        // Teschi leggeri
         setInterval(() => {
             const skull = document.createElement("div");
             skull.className = "skull";
