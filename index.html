@@ -2,22 +2,6 @@ Here's your upgraded, far more infernal and spooky countdown to January 1, 2026 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 HTML<!DOCTYPE html>
 <html lang="it">
 <head>
@@ -32,7 +16,7 @@ HTML<!DOCTYPE html>
             padding: 20px;
             min-height: 100vh;
             background: linear-gradient(to bottom, #000 0%, #220000 50%, #000 100%);
-            color: #ff0000; /* Rosso puro molto più visibile */
+            color: #ff0000;
             font-family: 'Creepster', 'Courier New', monospace;
             text-align: center;
             overflow: hidden;
@@ -77,15 +61,26 @@ HTML<!DOCTYPE html>
             50% { opacity: 0.8; transform: scale(1.1); }
         }
 
+        /* VENGEFUL MISERY - ORA SUPER VISIBILE E LEGGIBILE */
         h1 {
-            font-size: clamp(3rem, 12vw, 7.5rem);
-            margin: 0 0 10px;
-            text-shadow: 
-                0 0 20px #ff0000,
-                0 0 40px #ff0000,
-                0 0 60px #ff0000,
-                0 0 80px #ff0000;
-            letter-spacing: clamp(8px, 3vw, 20px);
+            font-size: clamp(3.2rem, 13vw, 8rem);
+            margin: 0 0 15px;
+            letter-spacing: clamp(10px, 4vw, 25px);
+            color: #ff0000;
+            /* Contorno bianco + glow rosso per massima leggibilità */
+            text-shadow:
+                -2px -2px 0 #fff,
+                 2px -2px 0 #fff,
+                -2px  2px 0 #fff,
+                 2px  2px 0 #fff,
+                -1px -1px 0 #fff,
+                 1px -1px 0 #fff,
+                -1px  1px 0 #fff,
+                 1px  1px 0 #fff,
+                 0 0 20px #ff0000,
+                 0 0 40px #ff0000,
+                 0 0 60px #ff0000,
+                 0 0 80px #ff0000;
             animation: flicker 2.5s infinite alternate;
             position: relative;
             z-index: 10;
@@ -93,7 +88,7 @@ HTML<!DOCTYPE html>
 
         @keyframes flicker {
             0%,100% { opacity: 1; }
-            50% { opacity: 0.9; }
+            50% { opacity: 0.92; }
         }
 
         .countdown-container {
@@ -149,7 +144,7 @@ HTML<!DOCTYPE html>
         }
 
         .visitor-count span {
-            color: #ff3333; /* Rosso leggermente più chiaro per il numero */
+            color: #ff3333;
             font-size: clamp(1.8rem, 6vw, 2.8rem);
             text-shadow: 0 0 25px #ff0000, 0 0 50px #ff0000;
             animation: pulse-red 2s infinite;
