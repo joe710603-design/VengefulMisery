@@ -1,667 +1,305 @@
+Here's your upgraded, far more infernal and spooky countdown to January 1, 2026 (00:00:00 UTC):
 
 
-<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+HTML<!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-/>
-  <title>Vengeful Misery – Rise of the Damned | Countdown</title>
-  <meta name="description" content="Countdown infernale all’uscita del nuovo album dei Vengeful Misery: Rise of the Damned. 01/01/2026 00:00:00 UTC." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Vengeful Misery</title>
+    <meta name="description" content="Il countdown verso la miseria vendicativa è iniziato...">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: #000;
+            color: #ff2200;
+            font-family: 'Creepster', 'Courier New', monospace;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Vengeful Misery – Rise of the Damned" />
-  <meta property="og:description" content="The damned will rise on January 1, 2026 (00:00 UTC)." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="cover-1200x630.jpg" />
-  <meta property="og:url" content="https://your-domain.example/countdown" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="theme-color" content="#ff0000" />
+        #hell-flames {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
 
-  <!-- Performance: preconnect fonts -->
-  <link rel="preconnect.com
-  https://fonts.googleapis.com
-  https://fonts.googleapis.com/css2?family=Creepster&display=swap
+        h1 {
+            font-size: clamp(3rem, 12vw, 8rem);
+            margin: 0 0 10px 0;
+            text-shadow: 0 0 40px #ff0000, 0 0 80px #880000, 0 0 120px #aa0000;
+            letter-spacing: clamp(10px, 4vw, 20px);
+            animation: vengeance-flicker 2s infinite alternate;
+            position: relative;
+            z-index: 10;
+        }
 
-  <style>
-    * { box-sizing: border-box; }
-    :root {
-      --red: #ff0000;
-      --red-soft: #ff3333;
-      --bg-top: #000000;
-      --bg-mid: #220000;
-      --glow1: 20px;
-      --glow2: 40px;
-      --glow3: 60px;
-      --glow4: 90px;
-    }
+        @keyframes vengeance-flicker {
+            0%,100% { opacity: 1; text-shadow: 0 0 40px #ff0000, 0 0 80px #ff2200; }
+            50% { opacity: 0.85; text-shadow: 0 0 60px #ff0000, 0 0 120px #aa0000; }
+        }
 
-    html, body { height: 100%; }
+        .countdown-container {
+            margin: 20px 0;
+            padding: 0 10px;
+            position: relative;
+            z-index: 10;
+        }
 
-    body {
-      margin: 0;
-      padding: 20px;
-      min-height: 100vh;
-      background: linear-gradient(to bottom, var(--bg-top) 0%, var(--bg-mid) 50%, var(--bg-top) 100%);
-      color: var(--red);
-      font-family: 'Creepster', 'Courier New', monospace;
-      text-align: center;
-      overflow: hidden;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+        .countdown {
+            font-size: clamp(2.5rem, 10vw, 6rem);
+            letter-spacing: clamp(10px, 5vw, 30px);
+            text-shadow: 0 0 40px #ff0000, 0 0 80px #ff2200, 0 0 120px #aa0000;
+            animation: hell-glow 1.8s infinite alternate;
+            white-space: nowrap;
+        }
 
-    /* Fiamme leggere CSS */
-    body::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(transparent, rgba(255,50,0,0.4));
-      background-size: 100% 200%;
-      animation: flames 12s linear infinite;
-      pointer-events: none;
-      z-index: 1;
-    }
-    @keyframes flames {
-      0% { background-position: 0 0; }
-      100% { background-position: 0 100%; }
-    }
-    body::after {
-      content: '';
-      position: absolute;
-      left: 0; right: 0; bottom: 0;
-      height: 50%;
-      background: radial-gradient(circle at center, rgba(255,100,0,0.5) 0%, transparent 70%);
-      animation: pulse-flame 8s ease-in-out infinite;
-      pointer-events: none;
-      z-index: 1;
-    }
-    @keyframes pulse-flame {
-      0%,100% { opacity: 0.5; transform: scale(1); }
-      50% { opacity: 0.8; transform: scale(1.08); }
-    }
+        @keyframes hell-glow {
+            0% { text-shadow: 0 0 40px #ff0000; }
+            100% { text-shadow: 0 0 80px #ff3300, 0 0 140px #ff0000; }
+        }
 
-    /* Ridurre animazioni per chi le disattiva */
-    @media (prefers-reduced-motion: reduce) {
-      body::before, body::after,
-      .skull, h1, .countdown, p,
-      .label, .visitor-count span, #audio-viz {
-        animation: none !important;
-        transition: none !important;
-      }
-      #audio-viz { display: none !important; }
-    }
+        .label {
+            font-size: clamp(1rem, 3.5vw, 2rem);
+            letter-spacing: clamp(8px, 3vw, 20px);
+            margin-top: 8px;
+            opacity: 0.9;
+            text-shadow: 0 0 15px #ff0000;
+        }
 
-    h1 {
-      font-size: clamp(3.2rem, 13vw, 8rem);
-      margin: 0 0 10px;
-      letter-spacing: clamp(10px, 4vw, 25px);
-      color: var(--red);
-      text-shadow:
-        -2px -2px 0 #fff,  2px -2px 0 #fff,
-        -2px  2px 0 #fff,  2px  2px 0 #fff,
-        -1px -1px 0 #fff,  1px -1px 0 #fff,
-        -1px  1px 0 #fff,  1px  1px 0 #fff,
-         0 0 var(--glow1) var(--red),
-         0 0 var(--glow2) var(--red),
-         0 0 var(--glow3) var(--red),
-         0 0 var(--glow4) var(--red);
-      animation: flicker 2.5s infinite alternate;
-      position: relative;
-      z-index: 10;
-    }
-    @keyframes flicker { 0%,100% { opacity: 1; } 50% { opacity: 0.92; } }
+        p {
+            font-size: clamp(1.3rem, 4vw, 2.5rem);
+            margin: 15px 20px;
+            text-shadow: 0 0 30px #ff0000;
+            opacity: 0.9;
+            animation: misery-pulse 4s infinite;
+        }
 
-    .subtitle {
-      font-size: clamp(1rem, 3.5vw, 1.4rem);
-      margin: 2px 0 10px;
-      opacity: 0.9;
-      color: #ffd6d6;
-      text-shadow: 0 0 8px var(--red);
-      z-index: 10;
-    }
+        .visitor-count {
+            font-size: clamp(1.4rem, 4.5vw, 2.2rem);
+            margin: 20px 0;
+            text-shadow: 0 0 25px #ff0000;
+            opacity: 0.9;
+        }
 
-    .countdown-container {
-      margin: 14px 0 8px;
-      position: relative;
-      z-index: 10;
-    }
+        .visitor-count span {
+            color: #ff4400;
+            font-size: clamp(1.8rem, 6vw, 2.8rem);
+            animation: pulse-red 2s infinite;
+        }
 
-    .countdown {
-      font-size: clamp(2.4rem, 10vw, 6rem);
-      letter-spacing: clamp(10px, 4.5vw, 28px);
-      text-shadow:
-        0 0 20px var(--red),
-        0 0 40px var(--red),
-        0 0 60px var(--red),
-        0 0 90px var(--red);
-      animation: glow 1.8s infinite alternate;
-    }
-    @keyframes glow {
-      0% { text-shadow: 0 0 20px var(--red), 0 0 40px var(--red); }
-      100% { text-shadow: 0 0 40px var(--red), 0 0 80px var(--red), 0 0 120px var(--red); }
-    }
+        @keyframes pulse-red {
+            0%,100% { text-shadow: 0 0 20px #ff0000; }
+            50% { text-shadow: 0 0 40px #ff2200; }
+        }
 
-    .label {
-      font-size: clamp(0.9rem, 3.2vw, 1.6rem);
-      letter-spacing: clamp(6px, 2.5vw, 15px);
-      margin-top: 6px;
-      opacity: 0.95;
-      text-shadow: 0 0 15px var(--red), 0 0 30px var(--red);
-    }
+        @keyframes misery-pulse {
+            0%,100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
 
-    .tz {
-      font-size: clamp(0.8rem, 2.8vw, 1.1rem);
-      opacity: 0.85;
-      margin-top: 4px;
-      color: #ffb3b3;
-    }
+        .skull {
+            position: absolute;
+            font-size: clamp(3rem, 10vw, 5rem);
+            opacity: 0.6;
+            animation: float-skull linear infinite;
+            pointer-events: none;
+            z-index: 5;
+        }
 
-    p {
-      font-size: clamp(1.2rem, 4vw, 2.1rem);
-      margin: 12px 20px 8px;
-      text-shadow: 0 0 20px var(--red), 0 0 40px var(--red);
-      opacity: 0.95;
-      animation: pulse-text 5s infinite;
-      z-index: 10;
-    }
-    @keyframes pulse-text { 0%,100% { opacity: 0.8; } 50% { opacity: 1; } }
+        @keyframes float-skull {
+            0% { transform: translateY(100vh) rotate(0deg) scale(0.7); }
+            100% { transform: translateY(-200px) rotate(360deg) scale(1.5); }
+        }
 
-    .visitor-count {
-      font-size: clamp(1.1rem, 4.5vw, 1.6rem);
-      margin: 16px 0 12px;
-      text-shadow: 0 0 20px var(--red), 0 0 40px var(--red);
-      opacity: 0.95;
-      position: relative;
-      z-index: 10;
-    }
-    .visitor-count span {
-      color: var(--red-soft);
-      font-size: clamp(1.4rem, 6vw, 2rem);
-      text-shadow: 0 0 25px var(--red), 0 0 50px var(--red);
-      animation: pulse-red 2s infinite;
-    }
-    @keyframes pulse-red {
-      0%,100% { text-shadow: 0 0 25px var(--red); }
-      50% { text-shadow: 0 0 50px var(--red), 0 0 80px var(--red-soft); }
-    }
+        .blood-drip {
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(transparent, #880000);
+            animation: drip 6s infinite;
+            opacity: 0.9;
+            z-index: 5;
+        }
 
-    /* Canvas Visualizer */
-    #audio-viz {
-      position: fixed;
-      inset: 0;
-      z-index: 2;               /* sotto i testi (z=10), sopra le fiamme (z=1) */
-      pointer-events: none;
-      opacity: 0.35;
-      mix-blend-mode: screen;
-    }
-
-    /* Controlli audio */
-    .audio-controls {
-      position: fixed;
-      bottom: 16px;
-      right: 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 12px;
-      border: 1px solid #fff;
-      background: rgba(0,0,0,0.35);
-      backdrop-filter: blur(2px);
-      z-index: 20;
-    }
-    .audio-controls button,
-    .audio-controls .vol-label {
-      color: #fff;
-      letter-spacing: 2px;
-      text-shadow: 0 0 8px #ff0000;
-      font-family: 'Creepster','Courier New',monospace;
-      font-size: 0.95rem;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-    }
-    .audio-controls input[type="range"] {
-      accent-color: #ff0000;
-      width: 120px;
-    }
-
-    /* Toggle Visualizer */
-    #viz-toggle {
-      position: fixed; left: 16px; bottom: 16px; z-index: 22;
-      padding: 8px 12px; border: 1px solid #fff; background: rgba(0,0,0,0.35);
-      color: #fff; letter-spacing: 2px; font-family: 'Creepster','Courier New',monospace; text-shadow: 0 0 8px #ff0000;
-      cursor: pointer;
-    }
-
-    /* CTA */
-    .cta {
-      display: none; /* appare a fine countdown */
-      margin-top: 18px;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-      z-index: 10;
-    }
-    .cta a {
-      display: inline-block;
-      padding: 10px 16px;
-      border: 2px solid #fff;
-      color: #fff;
-      text-decoration: none;
-      letter-spacing: 2px;
-      background: rgba(255,0,0,0.1);
-      text-shadow: 0 0 10px var(--red);
-      transition: transform .15s ease, background .15s ease;
-      font-size: clamp(0.9rem, 3vw, 1.1rem);
-    }
-    .cta a:hover { transform: translateY(-2px); background: rgba(255,0,0,0.2); }
-
-    /* Player Spotify */
-    .spotify-embed {
-      position: fixed;
-      left: 16px;
-      right: 16px;
-      bottom: 72px; /* sopra ai controlli audio */
-      z-index: 21;
-      display: none;
-    }
-    @media (min-width: 768px) {
-      .spotify-embed {
-        left: 50%;
-        right: auto;
-        transform: translateX(-50%);
-        width: 520px;
-      }
-    }
-
-    /* Teschi */
-    .skull {
-      position: absolute;
-      font-size: clamp(2.5rem, 8vw, 4rem);
-      opacity: 0.5;
-      animation: float-skull 20s linear infinite;
-      pointer-events: none;
-      z-index: 5;
-    }
-    @keyframes float-skull {
-      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-      20% { opacity: 0.5; }
-      80% { opacity: 0.5; }
-      100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
-    }
-  </style>
+        @keyframes drip {
+            0% { height: 0; top: 0; }
+            60% { height: 200px; }
+            100% { height: 200px; top: 100vh; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="hell-flames"></div>
 
-  <h1>VENGEFUL MISERY</h1>
-  <div class="subtitle" id="subtitle">Rise of the Damned</div>
+    <h1>VENGEFUL MISERY</h1>
 
-  <div class="countdown-container" aria-live="polite" aria-atomic="true">
-    <div class="countdown" id="countdown" role="timer" aria-label="Countdown to January 1, 2026 00:00:00 UTC">00 : 00 : 00 : 00</div>
-    <div class="label" aria-hidden="true">DAYS  HOURS  MINUTES  SECONDS</div>
-    <div class="tz">Target: 01/01/2026 00:00:00 <strong>UTC</strong></div>
-  </div>
+    <div class="countdown-container">
+        <div class="countdown" id="countdown">00 : 00 : 00 : 00</div>
+        <div class="label">DAYS  HOURS  MINUTES  SECONDS</div>
+    </div>
 
-  <p id="tagline">The damned will rise on January 1, 2026</p>
+    <p>I dannati sorgeranno il 1 gennaio 2026</p>
 
-  <div class="visitor-count">
-    Souls trapped in the abyss. <span id="visitor-number">0</span> 💀
-  </div>
+    <div class="visitor-count">
+        Anime intrappolate nell'abisso: <span id="visitor-number">0</span> 💀
+    </div>
 
-  <!-- Canvas Visualizer -->
-  <canvas id="audio-viz" aria-hidden="true"></canvas>
+    <!-- Audio demoniaco -->
+    <audio id="demonic-whispers" loop preload="auto">
+        <source src="https://cdn.pixabay.com/download/audio/2022/10/26/audio_1c5d7f1e1a.mp3?filename=horror-ambience-6664.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="deep-whispers" loop preload="auto">
+        <source src="https://cdn.pixabay.com/download/audio/2023/08/15/audio_1f7e9b2e5d.mp3?filename=evil-laugh-6944.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="hell-wind" loop preload="auto">
+        <source src="https://freesound.org/data/previews/145/145917_2613395-lq.mp3" type="audio/mpeg">
+    </audio>
 
-  <!-- Controlli audio -->
-  <div class="audio-controls" id="audio-controls" aria-label="Controlli audio">
-    <button id="audio-toggle" type="button">▶︎ PLAY</button>
-    <button id="audio-mute" type="button">🔇 MUTE</button>
-    <label for="audio-volume" class="vol-label">VOL</label>
-    <input id="audio-volume" type="range" min="0" max="1" step="0.01" value="0.25" />
-  </div>
+    <!-- Statcounter (contatore visite) -->
+    <script type="text/javascript">
+    var sc_project=12960820; 
+    var sc_invisible=1; 
+    var sc_security="5e3b2d89"; 
+    </script>
+    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
 
-  <!-- Toggle Visualizer -->
-  <button id="viz-toggle" type="button" title="Toggle visualizer">🔥 VIZ ON</button>
+    <script>
+        // Sblocca audio al primo tocco/clic (obbligatorio sui mobile)
+        document.body.addEventListener('touchstart', unlockAudio, { once: true });
+        document.body.addEventListener('click', unlockAudio, { once: true });
 
-  <!-- Audio teaser: SOSTITUISCI GLI URL QUI SOTTO -->
-  <audio id="bg-audio" preload="auto">
-    <source src="https://REPLACE_WITH_YOUR_DOMAIN/audio/vengeful-misery-dead-rising-teaser.mp/REPLACE_WITH_YOUR_DOMAIN/audio/vengeful-misery-dead-rising-teaser.ogg
-    <!-- Nessun loop nativo: loop gestito via JS -->
-  </audio>
-
-  <!-- CTA: appare a fine countdown -->
-  <div class="cta" id="cta">
-    https://open.spotify.com/intl-it/track/5leLnCz23Z7ogYgMrxDWKP?si=3316b012db614f0cLISTEN ON SPOTIFY</a>
-    https://music.apple.com/artist/your-idAPPLE MUSIC</a>
-    https://youtu.be/your-videoWATCH VIDEO</a>
-    https://your-store.example/bundleMERCH BUNDLE</a>
-  </div>
-
-  <!-- Player Spotify: compare allo scoccare del countdown -->
-  <div class="spotify-embed" id="spotify-embed">
-    https://open.spotify.com/embed/track/5leLnCz23Z7ogYgMrxDWKP?theme=0
-    </iframe>
-  </div>
-
-  <!-- Statcounter (facoltativo; valuta banner cookie per GDPR) -->
-  <script>
-    // Evita errori se l'utente blocca terze parti
-    window.addEventListener('error', () => {}, true);
-  </script>
-  <script>
-    var sc_project=12960820;
-    var sc_invisible=1;
-    var sc_security="5e3b2d89";
-  </script>
-  https://www.statcounter.com/counter/counter.js</script>
-
-  <script>
-    // ========= COUNTDOWN =========
-    const targetUtc = Date.UTC(2026, 0, 1, 0, 0, 0); // 01/01/2026 00:00:00 UTC
-    const $cd  = document.getElementById('countdown');
-    const $tag = document.getElementById('tagline');
-    const $cta = document.getElementById('cta');
-    const $embed = document.getElementById('spotify-embed');
-
-    let timer = null;
-    function format2(n){ return n.toString().padStart(2,'0'); }
-
-    function fadeOutAudio(el, ms = 1200) {
-      if (!el) return;
-      const steps = Math.max(1, Math.floor(ms / 50));
-      const dec = el.volume / steps;
-      const id = setInterval(() => {
-        el.volume = Math.max(0, el.volume - dec);
-        if (el.volume <= 0) {
-          clearInterval(id);
-          try { el.pause(); } catch (e) {}
-        }
-      }, 50);
-    }
-
-    function tick() {
-      const now = Date.now();
-      const diff = targetUtc - now;
-
-      if (diff <= 0) {
-        clearInterval(timer);
-        $cd.textContent = 'MISERY UNLEASHED';
-        $tag.textContent = 'There is no salvation.';
-        $cta.style.display = 'flex';
-        if ($embed) $embed.style.display = 'block';
-        // Spegni teaser e nascondi visualizer
-        try { fadeOutAudio(audioEl, 1200); } catch(e){}
-        const viz = document.getElementById('audio-viz');
-        if (viz) viz.style.display = 'none';
-        return;
-      }
-
-      const days    = Math.floor(diff / 86400000);
-      const hours   = Math.floor((diff % 86400000) / 3600000);
-      const minutes = Math.floor((diff % 3600000) / 60000);
-      const seconds = Math.floor((diff % 60000) / 1000);
-
-      $cd.textContent = `${days} : ${format2(hours)} : ${format2(minutes)} : ${format2(seconds)}`;
-    }
-    timer = setInterval(tick, 1000);
-    tick();
-
-    // ========= VISITORS (Statcounter) =========
-    const visitorEl = document.getElementById('visitor-number');
-    const updateVisitors = () => {
-      if (typeof window.sc_hits !== 'undefined') {
-        visitorEl.textContent = window.sc_hits;
-      }
-    };
-    setInterval(updateVisitors, 4000);
-
-    // ========= TESCHI =========
-    const addSkull = () => {
-      const skull = document.createElement('div');
-      skull.className = 'skull';
-      skull.textContent = '💀';
-      skull.style.left = (Math.random() * 90 + 5) + 'vw';
-      skull.style.animationDuration = (15 + Math.random() * 10) + 's';
-      document.body.appendChild(skull);
-      setTimeout(() => skull.remove(), 30000);
-    };
-    const skullInt = setInterval(addSkull, 2500);
-
-    // ========= AUDIO TEASER (LOOP con FADE-IN) =========
-    const LOOP_START  = 15;    // secondi: inizio loop (es. 15s)
-    const LOOP_END    = 45;    // secondi: fine loop (es. 45s)
-    const TARGET_VOL  = 0.25;  // volume obiettivo
-    const FADE_IN_SEC = 3.0;   // durata fade-in
-
-    const audioEl = document.getElementById('bg-audio');
-    const toggleBtn = document.getElementById('audio-toggle');
-    const muteBtn   = document.getElementById('audio-mute');
-    const volSlider = document.getElementById('audio-volume');
-
-    let loopRaf = null;
-    let fadeInt = null;
-
-    function clamp(v, a, b) { return Math.min(b, Math.max(a, v)); }
-
-    function fadeInTo(el, targetVol = 0.25, durSec = 3.0) {
-      if (fadeInt) clearInterval(fadeInt);
-      targetVol = clamp(targetVol, 0, 1);
-      const frames = Math.max(1, Math.floor(durSec * 60));
-      const step = (targetVol - el.volume) / frames;
-      let i = 0;
-      fadeInt = setInterval(() => {
-        el.volume = clamp(el.volume + step, 0, 1);
-        if (++i >= frames) {
-          el.volume = targetVol;
-          clearInterval(fadeInt);
-          fadeInt = null;
-        }
-      }, 1000 / 60);
-    }
-
-    async function startTeaser() {
-      if (!audioEl) return;
-      try { audioEl.pause(); } catch(e){}
-      try { audioEl.currentTime = LOOP_START; } catch(e){}
-      audioEl.volume = 0.0;
-      try {
-        await audioEl.play();
-      } catch (err) { /* Utente dovrà premere PLAY */ }
-      fadeInTo(audioEl, TARGET_VOL, FADE_IN_SEC);
-      if (!loopRaf) loopRaf = requestAnimationFrame(enforceLoopWindow);
-    }
-
-    function enforceLoopWindow() {
-      if (!audioEl || audioEl.paused) {
-        loopRaf = requestAnimationFrame(enforceLoopWindow);
-        return;
-      }
-      const t = audioEl.currentTime;
-      if (t >= LOOP_END) {
-        const over = t - LOOP_END;
-        try { audioEl.currentTime = LOOP_START + over; } catch(e) {
-          try { audioEl.currentTime = LOOP_START; } catch(_) {}
-        }
-      }
-      loopRaf = requestAnimationFrame(enforceLoopWindow);
-    }
-
-    function unlockAudioOnce() {
-      startTeaser(); // parte teaser con fade-in
-      document.body.removeEventListener('touchstart', unlockAudioOnce);
-      document.body.removeEventListener('click', unlockAudioOnce);
-    }
-    document.body.addEventListener('touchstart', unlockAudioOnce, { once: true });
-    document.body.addEventListener('click', unlockAudioOnce, { once: true });
-
-    // Controlli
-    if (audioEl) {
-      audioEl.volume = parseFloat(volSlider.value || '0.25');
-
-      toggleBtn.addEventListener('click', async () => {
-        if (audioEl.paused) {
-          await startTeaser();
-          toggleBtn.textContent = '❚❚ PAUSE';
-        } else {
-          audioEl.pause();
-          toggleBtn.textContent = '▶︎ PLAY';
-        }
-      });
-
-      muteBtn.addEventListener('click', () => {
-        audioEl.muted = !audioEl.muted;
-        muteBtn.textContent = audioEl.muted ? '🔊 UNMUTE' : '🔇 MUTE';
-      });
-
-      volSlider.addEventListener('input', (e) => {
-        audioEl.volume = clamp(parseFloat(e.target.value), 0, 1);
-      });
-
-      audioEl.addEventListener('play',  () => toggleBtn.textContent = '❚❚ PAUSE');
-      audioEl.addEventListener('pause', () => toggleBtn.textContent = '▶︎ PLAY');
-    }
-
-    // ========= AUDIO VISUALIZER (Web Audio API) =========
-    (function initVisualizer() {
-      const canvas = document.getElementById('audio-viz');
-      if (!audioEl || !canvas) return;
-
-      const ctx = canvas.getContext('2d');
-      let rafId = null;
-      let running = true;
-
-      function resizeCanvas() {
-        const dpr = Math.max(1, Math.floor(window.devicePixelRatio || 1));
-        const w = canvas.clientWidth || window.innerWidth;
-        const h = canvas.clientHeight || window.innerHeight;
-        canvas.width  = Math.floor(w * dpr);
-        canvas.height = Math.floor(h * dpr);
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      }
-      window.addEventListener('resize', () => { resizeCanvas(); barGradient = makeGradient(); });
-      resizeCanvas();
-
-      let audioCtx, analyser, srcNode;
-      function setupAudioGraph() {
-        if (audioCtx) return;
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        analyser = audioCtx.createAnalyser();
-        analyser.fftSize = 1024;
-        analyser.smoothingTimeConstant = 0.8;
-        srcNode = audioCtx.createMediaElementSource(audioEl);
-        srcNode.connect(analyser);
-        // NON connetto a destination per evitare doppio audio; l'elemento riproduce già.
-      }
-
-      function makeGradient() {
-        const g = ctx.createLinearGradient(0, canvas.height, canvas.width, 0);
-        g.addColorStop(0.00, '#300000');
-        g.addColorStop(0.35, '#7a0000');
-        g.addColorStop(0.65, '#ff0000');
-        g.addColorStop(1.00, '#ff5a5a');
-        return g;
-      }
-      let barGradient = makeGradient();
-
-      function drawBars() {
-        const W = canvas.clientWidth || window.innerWidth;
-        const H = canvas.clientHeight || window.innerHeight;
-        ctx.clearRect(0, 0, W, H);
-
-        const bufferLen = analyser.frequencyBinCount;
-        const data = new Uint8Array(bufferLen);
-        analyser.getByteFrequencyData(data);
-
-        const bars = Math.min(96, Math.floor(W / 10));
-        const step = Math.floor(bufferLen / bars);
-        const barW = Math.max(4, Math.floor(W / (bars * 1.4)));
-        const gap  = Math.max(2, Math.floor(barW * 0.35));
-        const baseY = H - 20;
-
-        ctx.fillStyle = barGradient;
-        let avg = 0;
-
-        for (let i = 0; i < bars; i++) {
-          const idx = Math.min(bufferLen - 1, i * step + 8);
-          const v = data[idx] / 255;
-          avg += v;
-          const h = Math.pow(v, 0.7) * (H * 0.6) + (v * 40);
-          const x = i * (barW + gap) + 24;
-
-          // barre arrotondate
-          ctx.beginPath();
-          if (typeof ctx.roundRect === 'function') {
-            ctx.roundRect(x, baseY - h, barW, h, 4);
-          } else {
-            ctx.rect(x, baseY - h, barW, h);
-          }
-          ctx.fill();
-
-          // glow al top
-          ctx.fillStyle = 'rgba(255, 50, 50, 0.35)';
-          ctx.fillRect(x, baseY - h - 4, barW, 4);
-          ctx.fillStyle = barGradient;
+        function unlockAudio() {
+            document.getElementById('demonic-whispers').play().catch(() => {});
+            document.getElementById('deep-whispers').play().catch(() => {});
+            document.getElementById('hell-wind').play().catch(() => {});
         }
 
-        avg = avg / bars;
-        const glowScale = Math.min(1.2, 0.6 + avg * 0.9);
-        document.documentElement.style.setProperty('--glow1', `${20 * glowScale}px`);
-        document.documentElement.style.setProperty('--glow2', `${40 * glowScale}px`);
-        document.documentElement.style.setProperty('--glow3', `${60 * glowScale}px`);
-        document.documentElement.style.setProperty('--glow4', `${90 * glowScale}px`);
-      }
+        // Countdown al 01/01/2026
+        const targetDate = new Date("2026-01-01T00:00:00Z").getTime();
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
 
-      function loop() {
-        if (!running) return;
-        if (audioEl.paused || audioEl.muted || audioEl.volume === 0) {
-          ctx.clearRect(0, 0, canvas.clientWidth || window.innerWidth, canvas.clientHeight || window.innerHeight);
-        } else {
-          drawBars();
+            if (distance < 0) {
+                document.getElementById("countdown").innerHTML = "MISERY UNLEASHED";
+                document.querySelector("p").innerHTML = "Non c'è salvezza";
+                return;
+            }
+
+            const days = Math.floor(distance / 86400000);
+            const hours = Math.floor((distance % 86400000) / 3600000);
+            const minutes = Math.floor((distance % 3600000) / 60000);
+            const seconds = Math.floor((distance % 60000) / 1000);
+
+            document.getElementById("countdown").innerHTML = 
+                `${days}<span style="opacity:0.3"> : </span>` +
+                `${hours.toString().padStart(2, '0')}<span style="opacity:0.3"> : </span>` +
+                `${minutes.toString().padStart(2, '0')}<span style="opacity:0.3"> : </span>` +
+                `${seconds.toString().padStart(2, '0')}`;
         }
-        rafId = requestAnimationFrame(loop);
-      }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
 
-      const unlockAndStart = () => {
-        try {
-          setupAudioGraph();
-          if (audioCtx.state === 'suspended') audioCtx.resume();
-        } catch (e) {}
-        if (!rafId) loop();
-        barGradient = makeGradient();
-        document.body.removeEventListener('touchstart', unlockAndStart);
-        document.body.removeEventListener('click', unlockAndStart);
-      };
-      document.body.addEventListener('touchstart', unlockAndStart, { once: true });
-      document.body.addEventListener('click', unlockAndStart, { once: true });
+        // Aggiorna contatore visite visibile
+        setInterval(() => {
+            if (typeof sc_hits !== 'undefined') {
+                document.getElementById('visitor-number').textContent = sc_hits;
+            }
+        }, 3000);
 
-      const vizToggle = document.getElementById('viz-toggle');
-      if (vizToggle) {
-        vizToggle.addEventListener('click', () => {
-          running = !running;
-          vizToggle.textContent = running ? '🔥 VIZ ON' : '🩸 VIZ OFF';
-          if (running && !rafId) loop();
-          if (!running && rafId) { cancelAnimationFrame(rafId); rafId = null; }
-          canvas.style.display = running ? 'block' : 'none';
+        // Fiamme infernali (ottimizzate per mobile)
+        const canvas = document.createElement('canvas');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        document.getElementById('hell-flames').appendChild(canvas);
+        const ctx = canvas.getContext('2d');
+
+        const flameCount = window.innerWidth < 768 ? 50 : 100; // meno fiamme sui cellulari
+        const flames = [];
+        for (let i = 0; i < flameCount; i++) {
+            flames.push({
+                x: Math.random() * canvas.width,
+                y: canvas.height + 150,
+                height: 150 + Math.random() * 300,
+                speed: 0.8 + Math.random() * 1.5,
+                opacity: 0.3 + Math.random() * 0.4
+            });
+        }
+
+        function drawFlames() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            flames.forEach(flame => {
+                const gradient = ctx.createLinearGradient(flame.x, canvas.height, flame.x, canvas.height - flame.height);
+                gradient.addColorStop(0, `rgba(255, 80, 0, ${flame.opacity})`);
+                gradient.addColorStop(0.3, `rgba(255, 40, 0, ${flame.opacity * 0.8})`);
+                gradient.addColorStop(0.7, `rgba(200, 0, 0, ${flame.opacity * 0.5})`);
+                gradient.addColorStop(1, `rgba(80, 0, 0, 0)`);
+                ctx.fillStyle = gradient;
+                ctx.fillRect(flame.x - 40, canvas.height - flame.height, 80, flame.height);
+
+                flame.y -= flame.speed;
+                if (flame.y < -150) {
+                    flame.y = canvas.height + 150;
+                    flame.x = Math.random() * canvas.width;
+                }
+            });
+            requestAnimationFrame(drawFlames);
+        }
+        drawFlames();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
         });
-      }
 
-      window.addEventListener('beforeunload', () => {
-        running = false;
-        if (rafId) cancelAnimationFrame(rafId);
-        try { if (audioCtx) audioCtx.close(); } catch (e) {}
-      }, { passive: true });
-    })();
+        // Teschi e sangue (meno frequenti su mobile per prestazioni)
+        const skullInterval = window.innerWidth < 768 ? 1000 : 600;
+        setInterval(() => {
+            const skull = document.createElement("div");
+            skull.className = "skull";
+            skull.textContent = "💀";
+            skull.style.left = Math.random() * 100 + "vw";
+            skull.style.animationDuration = 12 + Math.random() * 12 + "s";
+            document.body.appendChild(skull);
+            setTimeout(() => skull.remove(), 30000);
+        }, skullInterval);
 
-    // ========= CLEANUP =========
-    window.addEventListener('beforeunload', () => {
-      clearInterval(timer);
-      clearInterval(skullInt);
-    }, { passive: true });
-  </script>
+        setInterval(() => {
+            const drip = document.createElement("div");
+            drip.className = "blood-drip";
+            drip.style.left = Math.random() * 100 + "vw";
+            document.body.appendChild(drip);
+            setTimeout(() => drip.remove(), 7000);
+        }, 1000);
+    </script>
 </body>
 </html>
