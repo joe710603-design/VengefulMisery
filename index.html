@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -20,7 +21,7 @@
   <meta name="theme-color" content="#ff0000" />
 
   <!-- Performance: preconnect fonts -->
-  https://fonts.gstatic.com
+  <link rel="preconnect.com
   https://fonts.googleapis.com
   https://fonts.googleapis.com/css2?family=Creepster&display=swap
 
@@ -37,9 +38,7 @@
       --glow4: 90px;
     }
 
-    html, body {
-      height: 100%;
-    }
+    html, body { height: 100%; }
 
     body {
       margin: 0;
@@ -91,15 +90,16 @@
     @media (prefers-reduced-motion: reduce) {
       body::before, body::after,
       .skull, h1, .countdown, p,
-      .label, .visitor-count span {
+      .label, .visitor-count span, #audio-viz {
         animation: none !important;
         transition: none !important;
       }
+      #audio-viz { display: none !important; }
     }
 
     h1 {
       font-size: clamp(3.2rem, 13vw, 8rem);
-      margin: 0 0 15px;
+      margin: 0 0 10px;
       letter-spacing: clamp(10px, 4vw, 25px);
       color: var(--red);
       text-shadow:
@@ -123,10 +123,11 @@
       opacity: 0.9;
       color: #ffd6d6;
       text-shadow: 0 0 8px var(--red);
+      z-index: 10;
     }
 
     .countdown-container {
-      margin: 20px 0 8px;
+      margin: 14px 0 8px;
       position: relative;
       z-index: 10;
     }
@@ -149,13 +150,13 @@
     .label {
       font-size: clamp(0.9rem, 3.2vw, 1.6rem);
       letter-spacing: clamp(6px, 2.5vw, 15px);
-      margin-top: 8px;
+      margin-top: 6px;
       opacity: 0.95;
       text-shadow: 0 0 15px var(--red), 0 0 30px var(--red);
     }
 
     .tz {
-      font-size: clamp(0.8rem, 2.8vw, 1.2rem);
+      font-size: clamp(0.8rem, 2.8vw, 1.1rem);
       opacity: 0.85;
       margin-top: 4px;
       color: #ffb3b3;
@@ -163,22 +164,22 @@
 
     p {
       font-size: clamp(1.2rem, 4vw, 2.1rem);
-      margin: 15px 20px 10px;
+      margin: 12px 20px 8px;
       text-shadow: 0 0 20px var(--red), 0 0 40px var(--red);
       opacity: 0.95;
       animation: pulse-text 5s infinite;
+      z-index: 10;
     }
     @keyframes pulse-text { 0%,100% { opacity: 0.8; } 50% { opacity: 1; } }
 
     .visitor-count {
       font-size: clamp(1.1rem, 4.5vw, 1.6rem);
-      margin: 18px 0 12px;
+      margin: 16px 0 12px;
       text-shadow: 0 0 20px var(--red), 0 0 40px var(--red);
       opacity: 0.95;
       position: relative;
       z-index: 10;
     }
-
     .visitor-count span {
       color: var(--red-soft);
       font-size: clamp(1.4rem, 6vw, 2rem);
@@ -190,6 +191,55 @@
       50% { text-shadow: 0 0 50px var(--red), 0 0 80px var(--red-soft); }
     }
 
+    /* Canvas Visualizer */
+    #audio-viz {
+      position: fixed;
+      inset: 0;
+      z-index: 2;               /* sotto i testi (z=10), sopra le fiamme (z=1) */
+      pointer-events: none;
+      opacity: 0.35;
+      mix-blend-mode: screen;
+    }
+
+    /* Controlli audio */
+    .audio-controls {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border: 1px solid #fff;
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(2px);
+      z-index: 20;
+    }
+    .audio-controls button,
+    .audio-controls .vol-label {
+      color: #fff;
+      letter-spacing: 2px;
+      text-shadow: 0 0 8px #ff0000;
+      font-family: 'Creepster','Courier New',monospace;
+      font-size: 0.95rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+    .audio-controls input[type="range"] {
+      accent-color: #ff0000;
+      width: 120px;
+    }
+
+    /* Toggle Visualizer */
+    #viz-toggle {
+      position: fixed; left: 16px; bottom: 16px; z-index: 22;
+      padding: 8px 12px; border: 1px solid #fff; background: rgba(0,0,0,0.35);
+      color: #fff; letter-spacing: 2px; font-family: 'Creepster','Courier New',monospace; text-shadow: 0 0 8px #ff0000;
+      cursor: pointer;
+    }
+
+    /* CTA */
     .cta {
       display: none; /* appare a fine countdown */
       margin-top: 18px;
@@ -212,6 +262,25 @@
     }
     .cta a:hover { transform: translateY(-2px); background: rgba(255,0,0,0.2); }
 
+    /* Player Spotify */
+    .spotify-embed {
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 72px; /* sopra ai controlli audio */
+      z-index: 21;
+      display: none;
+    }
+    @media (min-width: 768px) {
+      .spotify-embed {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        width: 520px;
+      }
+    }
+
+    /* Teschi */
     .skull {
       position: absolute;
       font-size: clamp(2.5rem, 8vw, 4rem);
@@ -245,22 +314,43 @@
     Souls trapped in the abyss. <span id="visitor-number">0</span> 💀
   </div>
 
-  <!-- Audio (avvio solo su gesto) -->
-  <audio id="demonic-whispers" loop preload="none">
-    <source src="https://cdn.pixabay.com/download/audio/2022/10/26/audio_1c5d7fname=horror-ambience-6664.mp3
+  <!-- Canvas Visualizer -->
+  <canvas id="audio-viz" aria-hidden="true"></canvas>
+
+  <!-- Controlli audio -->
+  <div class="audio-controls" id="audio-controls" aria-label="Controlli audio">
+    <button id="audio-toggle" type="button">▶︎ PLAY</button>
+    <button id="audio-mute" type="button">🔇 MUTE</button>
+    <label for="audio-volume" class="vol-label">VOL</label>
+    <input id="audio-volume" type="range" min="0" max="1" step="0.01" value="0.25" />
+  </div>
+
+  <!-- Toggle Visualizer -->
+  <button id="viz-toggle" type="button" title="Toggle visualizer">🔥 VIZ ON</button>
+
+  <!-- Audio teaser: SOSTITUISCI GLI URL QUI SOTTO -->
+  <audio id="bg-audio" preload="auto">
+    <source src="https://REPLACE_WITH_YOUR_DOMAIN/audio/vengeful-misery-dead-rising-teaser.mp/REPLACE_WITH_YOUR_DOMAIN/audio/vengeful-misery-dead-rising-teaser.ogg
+    <!-- Nessun loop nativo: loop gestito via JS -->
   </audio>
 
   <!-- CTA: appare a fine countdown -->
   <div class="cta" id="cta">
-    https://open.spotify.com/artist/your-idLISTEN ON SPOTIFY</a>
-    <a href="https://music.apple.comour-idAPPLE MUSIC</a>
+    https://open.spotify.com/intl-it/track/5leLnCz23Z7ogYgMrxDWKP?si=3316b012db614f0cLISTEN ON SPOTIFY</a>
+    https://music.apple.com/artist/your-idAPPLE MUSIC</a>
     https://youtu.be/your-videoWATCH VIDEO</a>
-    <a href="https://your-store.exampleRCH BUNDLE</a>
+    https://your-store.example/bundleMERCH BUNDLE</a>
   </div>
 
-  <!-- Statcounter (valuta cookie banner per GDPR) -->
+  <!-- Player Spotify: compare allo scoccare del countdown -->
+  <div class="spotify-embed" id="spotify-embed">
+    https://open.spotify.com/embed/track/5leLnCz23Z7ogYgMrxDWKP?theme=0
+    </iframe>
+  </div>
+
+  <!-- Statcounter (facoltativo; valuta banner cookie per GDPR) -->
   <script>
-    // Per evitare errori se blocchi terze parti
+    // Evita errori se l'utente blocca terze parti
     window.addEventListener('error', () => {}, true);
   </script>
   <script>
@@ -271,26 +361,28 @@
   https://www.statcounter.com/counter/counter.js</script>
 
   <script>
-    // Sblocca audio al tocco/click (safe fallback)
-    const audioEl = document.getElementById('demonic-whispers');
-    const unlockAudio = () => {
-      audioEl.volume = 0.2;
-      audioEl.play().catch(() => {});
-      document.body.removeEventListener('touchstart', unlockAudio);
-      document.body.removeEventListener('click', unlockAudio);
-    };
-    document.body.addEventListener('touchstart', unlockAudio, { once: true });
-    document.body.addEventListener('click', unlockAudio, { once: true });
-
-    // Countdown a 01/01/2026 00:00:00 UTC
-    const targetUtc = Date.UTC(2026, 0, 1, 0, 0, 0); // mesi 0-based
-    const $cd = document.getElementById('countdown');
+    // ========= COUNTDOWN =========
+    const targetUtc = Date.UTC(2026, 0, 1, 0, 0, 0); // 01/01/2026 00:00:00 UTC
+    const $cd  = document.getElementById('countdown');
     const $tag = document.getElementById('tagline');
     const $cta = document.getElementById('cta');
+    const $embed = document.getElementById('spotify-embed');
 
     let timer = null;
+    function format2(n){ return n.toString().padStart(2,'0'); }
 
-    function format(num) { return num.toString().padStart(2, '0'); }
+    function fadeOutAudio(el, ms = 1200) {
+      if (!el) return;
+      const steps = Math.max(1, Math.floor(ms / 50));
+      const dec = el.volume / steps;
+      const id = setInterval(() => {
+        el.volume = Math.max(0, el.volume - dec);
+        if (el.volume <= 0) {
+          clearInterval(id);
+          try { el.pause(); } catch (e) {}
+        }
+      }, 50);
+    }
 
     function tick() {
       const now = Date.now();
@@ -299,24 +391,27 @@
       if (diff <= 0) {
         clearInterval(timer);
         $cd.textContent = 'MISERY UNLEASHED';
-        $tag.textContent = "There is no salvation.";
+        $tag.textContent = 'There is no salvation.';
         $cta.style.display = 'flex';
+        if ($embed) $embed.style.display = 'block';
+        // Spegni teaser e nascondi visualizer
+        try { fadeOutAudio(audioEl, 1200); } catch(e){}
+        const viz = document.getElementById('audio-viz');
+        if (viz) viz.style.display = 'none';
         return;
       }
 
-      const days = Math.floor(diff / 86400000);
-      const hours = Math.floor((diff % 86400000) / 3600000);
+      const days    = Math.floor(diff / 86400000);
+      const hours   = Math.floor((diff % 86400000) / 3600000);
       const minutes = Math.floor((diff % 3600000) / 60000);
       const seconds = Math.floor((diff % 60000) / 1000);
 
-      // Aggiorno solo il testo, niente innerHTML complesso -> meno reflow
-      $cd.textContent = `${days} : ${format(hours)} : ${format(minutes)} : ${format(seconds)}`;
+      $cd.textContent = `${days} : ${format2(hours)} : ${format2(minutes)} : ${format2(seconds)}`;
     }
-
     timer = setInterval(tick, 1000);
     tick();
 
-    // Aggiorna contatore visite da Statcounter (se disponibile)
+    // ========= VISITORS (Statcounter) =========
     const visitorEl = document.getElementById('visitor-number');
     const updateVisitors = () => {
       if (typeof window.sc_hits !== 'undefined') {
@@ -325,7 +420,7 @@
     };
     setInterval(updateVisitors, 4000);
 
-    // Teschi leggeri
+    // ========= TESCHI =========
     const addSkull = () => {
       const skull = document.createElement('div');
       skull.className = 'skull';
@@ -337,7 +432,232 @@
     };
     const skullInt = setInterval(addSkull, 2500);
 
-    // Pulisci intervalli quando si chiude la pagina
+    // ========= AUDIO TEASER (LOOP con FADE-IN) =========
+    const LOOP_START  = 15;    // secondi: inizio loop (es. 15s)
+    const LOOP_END    = 45;    // secondi: fine loop (es. 45s)
+    const TARGET_VOL  = 0.25;  // volume obiettivo
+    const FADE_IN_SEC = 3.0;   // durata fade-in
+
+    const audioEl = document.getElementById('bg-audio');
+    const toggleBtn = document.getElementById('audio-toggle');
+    const muteBtn   = document.getElementById('audio-mute');
+    const volSlider = document.getElementById('audio-volume');
+
+    let loopRaf = null;
+    let fadeInt = null;
+
+    function clamp(v, a, b) { return Math.min(b, Math.max(a, v)); }
+
+    function fadeInTo(el, targetVol = 0.25, durSec = 3.0) {
+      if (fadeInt) clearInterval(fadeInt);
+      targetVol = clamp(targetVol, 0, 1);
+      const frames = Math.max(1, Math.floor(durSec * 60));
+      const step = (targetVol - el.volume) / frames;
+      let i = 0;
+      fadeInt = setInterval(() => {
+        el.volume = clamp(el.volume + step, 0, 1);
+        if (++i >= frames) {
+          el.volume = targetVol;
+          clearInterval(fadeInt);
+          fadeInt = null;
+        }
+      }, 1000 / 60);
+    }
+
+    async function startTeaser() {
+      if (!audioEl) return;
+      try { audioEl.pause(); } catch(e){}
+      try { audioEl.currentTime = LOOP_START; } catch(e){}
+      audioEl.volume = 0.0;
+      try {
+        await audioEl.play();
+      } catch (err) { /* Utente dovrà premere PLAY */ }
+      fadeInTo(audioEl, TARGET_VOL, FADE_IN_SEC);
+      if (!loopRaf) loopRaf = requestAnimationFrame(enforceLoopWindow);
+    }
+
+    function enforceLoopWindow() {
+      if (!audioEl || audioEl.paused) {
+        loopRaf = requestAnimationFrame(enforceLoopWindow);
+        return;
+      }
+      const t = audioEl.currentTime;
+      if (t >= LOOP_END) {
+        const over = t - LOOP_END;
+        try { audioEl.currentTime = LOOP_START + over; } catch(e) {
+          try { audioEl.currentTime = LOOP_START; } catch(_) {}
+        }
+      }
+      loopRaf = requestAnimationFrame(enforceLoopWindow);
+    }
+
+    function unlockAudioOnce() {
+      startTeaser(); // parte teaser con fade-in
+      document.body.removeEventListener('touchstart', unlockAudioOnce);
+      document.body.removeEventListener('click', unlockAudioOnce);
+    }
+    document.body.addEventListener('touchstart', unlockAudioOnce, { once: true });
+    document.body.addEventListener('click', unlockAudioOnce, { once: true });
+
+    // Controlli
+    if (audioEl) {
+      audioEl.volume = parseFloat(volSlider.value || '0.25');
+
+      toggleBtn.addEventListener('click', async () => {
+        if (audioEl.paused) {
+          await startTeaser();
+          toggleBtn.textContent = '❚❚ PAUSE';
+        } else {
+          audioEl.pause();
+          toggleBtn.textContent = '▶︎ PLAY';
+        }
+      });
+
+      muteBtn.addEventListener('click', () => {
+        audioEl.muted = !audioEl.muted;
+        muteBtn.textContent = audioEl.muted ? '🔊 UNMUTE' : '🔇 MUTE';
+      });
+
+      volSlider.addEventListener('input', (e) => {
+        audioEl.volume = clamp(parseFloat(e.target.value), 0, 1);
+      });
+
+      audioEl.addEventListener('play',  () => toggleBtn.textContent = '❚❚ PAUSE');
+      audioEl.addEventListener('pause', () => toggleBtn.textContent = '▶︎ PLAY');
+    }
+
+    // ========= AUDIO VISUALIZER (Web Audio API) =========
+    (function initVisualizer() {
+      const canvas = document.getElementById('audio-viz');
+      if (!audioEl || !canvas) return;
+
+      const ctx = canvas.getContext('2d');
+      let rafId = null;
+      let running = true;
+
+      function resizeCanvas() {
+        const dpr = Math.max(1, Math.floor(window.devicePixelRatio || 1));
+        const w = canvas.clientWidth || window.innerWidth;
+        const h = canvas.clientHeight || window.innerHeight;
+        canvas.width  = Math.floor(w * dpr);
+        canvas.height = Math.floor(h * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+      window.addEventListener('resize', () => { resizeCanvas(); barGradient = makeGradient(); });
+      resizeCanvas();
+
+      let audioCtx, analyser, srcNode;
+      function setupAudioGraph() {
+        if (audioCtx) return;
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        analyser = audioCtx.createAnalyser();
+        analyser.fftSize = 1024;
+        analyser.smoothingTimeConstant = 0.8;
+        srcNode = audioCtx.createMediaElementSource(audioEl);
+        srcNode.connect(analyser);
+        // NON connetto a destination per evitare doppio audio; l'elemento riproduce già.
+      }
+
+      function makeGradient() {
+        const g = ctx.createLinearGradient(0, canvas.height, canvas.width, 0);
+        g.addColorStop(0.00, '#300000');
+        g.addColorStop(0.35, '#7a0000');
+        g.addColorStop(0.65, '#ff0000');
+        g.addColorStop(1.00, '#ff5a5a');
+        return g;
+      }
+      let barGradient = makeGradient();
+
+      function drawBars() {
+        const W = canvas.clientWidth || window.innerWidth;
+        const H = canvas.clientHeight || window.innerHeight;
+        ctx.clearRect(0, 0, W, H);
+
+        const bufferLen = analyser.frequencyBinCount;
+        const data = new Uint8Array(bufferLen);
+        analyser.getByteFrequencyData(data);
+
+        const bars = Math.min(96, Math.floor(W / 10));
+        const step = Math.floor(bufferLen / bars);
+        const barW = Math.max(4, Math.floor(W / (bars * 1.4)));
+        const gap  = Math.max(2, Math.floor(barW * 0.35));
+        const baseY = H - 20;
+
+        ctx.fillStyle = barGradient;
+        let avg = 0;
+
+        for (let i = 0; i < bars; i++) {
+          const idx = Math.min(bufferLen - 1, i * step + 8);
+          const v = data[idx] / 255;
+          avg += v;
+          const h = Math.pow(v, 0.7) * (H * 0.6) + (v * 40);
+          const x = i * (barW + gap) + 24;
+
+          // barre arrotondate
+          ctx.beginPath();
+          if (typeof ctx.roundRect === 'function') {
+            ctx.roundRect(x, baseY - h, barW, h, 4);
+          } else {
+            ctx.rect(x, baseY - h, barW, h);
+          }
+          ctx.fill();
+
+          // glow al top
+          ctx.fillStyle = 'rgba(255, 50, 50, 0.35)';
+          ctx.fillRect(x, baseY - h - 4, barW, 4);
+          ctx.fillStyle = barGradient;
+        }
+
+        avg = avg / bars;
+        const glowScale = Math.min(1.2, 0.6 + avg * 0.9);
+        document.documentElement.style.setProperty('--glow1', `${20 * glowScale}px`);
+        document.documentElement.style.setProperty('--glow2', `${40 * glowScale}px`);
+        document.documentElement.style.setProperty('--glow3', `${60 * glowScale}px`);
+        document.documentElement.style.setProperty('--glow4', `${90 * glowScale}px`);
+      }
+
+      function loop() {
+        if (!running) return;
+        if (audioEl.paused || audioEl.muted || audioEl.volume === 0) {
+          ctx.clearRect(0, 0, canvas.clientWidth || window.innerWidth, canvas.clientHeight || window.innerHeight);
+        } else {
+          drawBars();
+        }
+        rafId = requestAnimationFrame(loop);
+      }
+
+      const unlockAndStart = () => {
+        try {
+          setupAudioGraph();
+          if (audioCtx.state === 'suspended') audioCtx.resume();
+        } catch (e) {}
+        if (!rafId) loop();
+        barGradient = makeGradient();
+        document.body.removeEventListener('touchstart', unlockAndStart);
+        document.body.removeEventListener('click', unlockAndStart);
+      };
+      document.body.addEventListener('touchstart', unlockAndStart, { once: true });
+      document.body.addEventListener('click', unlockAndStart, { once: true });
+
+      const vizToggle = document.getElementById('viz-toggle');
+      if (vizToggle) {
+        vizToggle.addEventListener('click', () => {
+          running = !running;
+          vizToggle.textContent = running ? '🔥 VIZ ON' : '🩸 VIZ OFF';
+          if (running && !rafId) loop();
+          if (!running && rafId) { cancelAnimationFrame(rafId); rafId = null; }
+          canvas.style.display = running ? 'block' : 'none';
+        });
+      }
+
+      window.addEventListener('beforeunload', () => {
+        running = false;
+        if (rafId) cancelAnimationFrame(rafId);
+        try { if (audioCtx) audioCtx.close(); } catch (e) {}
+      }, { passive: true });
+    })();
+
+    // ========= CLEANUP =========
     window.addEventListener('beforeunload', () => {
       clearInterval(timer);
       clearInterval(skullInt);
@@ -345,4 +665,3 @@
   </script>
 </body>
 </html>
-``
