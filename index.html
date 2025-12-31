@@ -1,260 +1,348 @@
-Here's your upgraded, far more infernal and spooky countdown to January 1, 2026 (00:00:00 UTC):
 
-
-
-HTML<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Vengeful Misery</title>
-    <meta name="description" content="Il countdown verso la miseria vendicativa...">
-    <style>
-        * { box-sizing: border-box; }
-        body {
-            margin: 0;
-            padding: 20px;
-            min-height: 100vh;
-            background: linear-gradient(to bottom, #000 0%, #220000 50%, #000 100%);
-            color: #ff0000;
-            font-family: 'Creepster', 'Courier New', monospace;
-            text-align: center;
-            overflow: hidden;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+/>
+  <title>Vengeful Misery – Rise of the Damned | Countdown</title>
+  <meta name="description" content="Countdown infernale all’uscita del nuovo album dei Vengeful Misery: Rise of the Damned. 01/01/2026 00:00:00 UTC." />
 
-        /* Fiamme leggere CSS */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: linear-gradient(transparent, rgba(255,50,0,0.4));
-            background-size: 100% 200%;
-            animation: flames 12s linear infinite;
-            pointer-events: none;
-            z-index: 1;
-        }
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Vengeful Misery – Rise of the Damned" />
+  <meta property="og:description" content="The damned will rise on January 1, 2026 (00:00 UTC)." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="cover-1200x630.jpg" />
+  <meta property="og:url" content="https://your-domain.example/countdown" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#ff0000" />
 
-        @keyframes flames {
-            0% { background-position: 0 0; }
-            100% { background-position: 0 100%; }
-        }
+  <!-- Performance: preconnect fonts -->
+  https://fonts.gstatic.com
+  https://fonts.googleapis.com
+  https://fonts.googleapis.com/css2?family=Creepster&display=swap
 
-        body::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0;
-            width: 100%; height: 50%;
-            background: radial-gradient(circle at center, rgba(255,100,0,0.5) 0%, transparent 70%);
-            animation: pulse-flame 8s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 1;
-        }
+  <style>
+    * { box-sizing: border-box; }
+    :root {
+      --red: #ff0000;
+      --red-soft: #ff3333;
+      --bg-top: #000000;
+      --bg-mid: #220000;
+      --glow1: 20px;
+      --glow2: 40px;
+      --glow3: 60px;
+      --glow4: 90px;
+    }
 
-        @keyframes pulse-flame {
-            0%,100% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.1); }
-        }
+    html, body {
+      height: 100%;
+    }
 
-        /* VENGEFUL MISERY - ORA SUPER VISIBILE E LEGGIBILE */
-        h1 {
-            font-size: clamp(3.2rem, 13vw, 8rem);
-            margin: 0 0 15px;
-            letter-spacing: clamp(10px, 4vw, 25px);
-            color: #ff0000;
-            /* Contorno bianco + glow rosso per massima leggibilità */
-            text-shadow:
-                -2px -2px 0 #fff,
-                 2px -2px 0 #fff,
-                -2px  2px 0 #fff,
-                 2px  2px 0 #fff,
-                -1px -1px 0 #fff,
-                 1px -1px 0 #fff,
-                -1px  1px 0 #fff,
-                 1px  1px 0 #fff,
-                 0 0 20px #ff0000,
-                 0 0 40px #ff0000,
-                 0 0 60px #ff0000,
-                 0 0 80px #ff0000;
-            animation: flicker 2.5s infinite alternate;
-            position: relative;
-            z-index: 10;
-        }
+    body {
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      background: linear-gradient(to bottom, var(--bg-top) 0%, var(--bg-mid) 50%, var(--bg-top) 100%);
+      color: var(--red);
+      font-family: 'Creepster', 'Courier New', monospace;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
-        @keyframes flicker {
-            0%,100% { opacity: 1; }
-            50% { opacity: 0.92; }
-        }
+    /* Fiamme leggere CSS */
+    body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent, rgba(255,50,0,0.4));
+      background-size: 100% 200%;
+      animation: flames 12s linear infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+    @keyframes flames {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 100%; }
+    }
+    body::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 50%;
+      background: radial-gradient(circle at center, rgba(255,100,0,0.5) 0%, transparent 70%);
+      animation: pulse-flame 8s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+    @keyframes pulse-flame {
+      0%,100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.08); }
+    }
 
-        .countdown-container {
-            margin: 20px 0;
-            position: relative;
-            z-index: 10;
-        }
+    /* Ridurre animazioni per chi le disattiva */
+    @media (prefers-reduced-motion: reduce) {
+      body::before, body::after,
+      .skull, h1, .countdown, p,
+      .label, .visitor-count span {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
 
-        .countdown {
-            font-size: clamp(2.4rem, 10vw, 6rem);
-            letter-spacing: clamp(10px, 4.5vw, 28px);
-            text-shadow: 
-                0 0 20px #ff0000,
-                0 0 40px #ff0000,
-                0 0 60px #ff0000,
-                0 0 90px #ff0000;
-            animation: glow 1.8s infinite alternate;
-        }
+    h1 {
+      font-size: clamp(3.2rem, 13vw, 8rem);
+      margin: 0 0 15px;
+      letter-spacing: clamp(10px, 4vw, 25px);
+      color: var(--red);
+      text-shadow:
+        -2px -2px 0 #fff,  2px -2px 0 #fff,
+        -2px  2px 0 #fff,  2px  2px 0 #fff,
+        -1px -1px 0 #fff,  1px -1px 0 #fff,
+        -1px  1px 0 #fff,  1px  1px 0 #fff,
+         0 0 var(--glow1) var(--red),
+         0 0 var(--glow2) var(--red),
+         0 0 var(--glow3) var(--red),
+         0 0 var(--glow4) var(--red);
+      animation: flicker 2.5s infinite alternate;
+      position: relative;
+      z-index: 10;
+    }
+    @keyframes flicker { 0%,100% { opacity: 1; } 50% { opacity: 0.92; } }
 
-        @keyframes glow {
-            0% { text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000; }
-            100% { text-shadow: 0 0 40px #ff0000, 0 0 80px #ff0000, 0 0 120px #ff0000; }
-        }
+    .subtitle {
+      font-size: clamp(1rem, 3.5vw, 1.4rem);
+      margin: 2px 0 10px;
+      opacity: 0.9;
+      color: #ffd6d6;
+      text-shadow: 0 0 8px var(--red);
+    }
 
-        .label {
-            font-size: clamp(1rem, 3.2vw, 1.9rem);
-            letter-spacing: clamp(6px, 2.5vw, 15px);
-            margin-top: 8px;
-            opacity: 0.95;
-            text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
-        }
+    .countdown-container {
+      margin: 20px 0 8px;
+      position: relative;
+      z-index: 10;
+    }
 
-        p {
-            font-size: clamp(1.3rem, 4vw, 2.4rem);
-            margin: 15px 20px;
-            text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000;
-            opacity: 0.95;
-            animation: pulse-text 5s infinite;
-        }
+    .countdown {
+      font-size: clamp(2.4rem, 10vw, 6rem);
+      letter-spacing: clamp(10px, 4.5vw, 28px);
+      text-shadow:
+        0 0 20px var(--red),
+        0 0 40px var(--red),
+        0 0 60px var(--red),
+        0 0 90px var(--red);
+      animation: glow 1.8s infinite alternate;
+    }
+    @keyframes glow {
+      0% { text-shadow: 0 0 20px var(--red), 0 0 40px var(--red); }
+      100% { text-shadow: 0 0 40px var(--red), 0 0 80px var(--red), 0 0 120px var(--red); }
+    }
 
-        @keyframes pulse-text {
-            0%,100% { opacity: 0.8; }
-            50% { opacity: 1; }
-        }
+    .label {
+      font-size: clamp(0.9rem, 3.2vw, 1.6rem);
+      letter-spacing: clamp(6px, 2.5vw, 15px);
+      margin-top: 8px;
+      opacity: 0.95;
+      text-shadow: 0 0 15px var(--red), 0 0 30px var(--red);
+    }
 
-        .visitor-count {
-            font-size: clamp(1.4rem, 4.5vw, 2.1rem);
-            margin: 25px 0 10px;
-            text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000;
-            opacity: 0.95;
-            position: relative;
-            z-index: 10;
-        }
+    .tz {
+      font-size: clamp(0.8rem, 2.8vw, 1.2rem);
+      opacity: 0.85;
+      margin-top: 4px;
+      color: #ffb3b3;
+    }
 
-        .visitor-count span {
-            color: #ff3333;
-            font-size: clamp(1.8rem, 6vw, 2.8rem);
-            text-shadow: 0 0 25px #ff0000, 0 0 50px #ff0000;
-            animation: pulse-red 2s infinite;
-        }
+    p {
+      font-size: clamp(1.2rem, 4vw, 2.1rem);
+      margin: 15px 20px 10px;
+      text-shadow: 0 0 20px var(--red), 0 0 40px var(--red);
+      opacity: 0.95;
+      animation: pulse-text 5s infinite;
+    }
+    @keyframes pulse-text { 0%,100% { opacity: 0.8; } 50% { opacity: 1; } }
 
-        @keyframes pulse-red {
-            0%,100% { text-shadow: 0 0 25px #ff0000; }
-            50% { text-shadow: 0 0 50px #ff0000, 0 0 80px #ff3333; }
-        }
+    .visitor-count {
+      font-size: clamp(1.1rem, 4.5vw, 1.6rem);
+      margin: 18px 0 12px;
+      text-shadow: 0 0 20px var(--red), 0 0 40px var(--red);
+      opacity: 0.95;
+      position: relative;
+      z-index: 10;
+    }
 
-        .skull {
-            position: absolute;
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            opacity: 0.5;
-            animation: float-skull 20s linear infinite;
-            pointer-events: none;
-            z-index: 5;
-        }
+    .visitor-count span {
+      color: var(--red-soft);
+      font-size: clamp(1.4rem, 6vw, 2rem);
+      text-shadow: 0 0 25px var(--red), 0 0 50px var(--red);
+      animation: pulse-red 2s infinite;
+    }
+    @keyframes pulse-red {
+      0%,100% { text-shadow: 0 0 25px var(--red); }
+      50% { text-shadow: 0 0 50px var(--red), 0 0 80px var(--red-soft); }
+    }
 
-        @keyframes float-skull {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            20% { opacity: 0.5; }
-            80% { opacity: 0.5; }
-            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    .cta {
+      display: none; /* appare a fine countdown */
+      margin-top: 18px;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      z-index: 10;
+    }
+    .cta a {
+      display: inline-block;
+      padding: 10px 16px;
+      border: 2px solid #fff;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 2px;
+      background: rgba(255,0,0,0.1);
+      text-shadow: 0 0 10px var(--red);
+      transition: transform .15s ease, background .15s ease;
+      font-size: clamp(0.9rem, 3vw, 1.1rem);
+    }
+    .cta a:hover { transform: translateY(-2px); background: rgba(255,0,0,0.2); }
+
+    .skull {
+      position: absolute;
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      opacity: 0.5;
+      animation: float-skull 20s linear infinite;
+      pointer-events: none;
+      z-index: 5;
+    }
+    @keyframes float-skull {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      20% { opacity: 0.5; }
+      80% { opacity: 0.5; }
+      100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+    }
+  </style>
 </head>
 <body>
 
-    <h1>VENGEFUL MISERY</h1>
+  <h1>VENGEFUL MISERY</h1>
+  <div class="subtitle" id="subtitle">Rise of the Damned</div>
 
-    <div class="countdown-container">
-        <div class="countdown" id="countdown">00 : 00 : 00 : 00</div>
-        <div class="label">DAYS  HOURS  MINUTES  SECONDS</div>
-    </div>
+  <div class="countdown-container" aria-live="polite" aria-atomic="true">
+    <div class="countdown" id="countdown" role="timer" aria-label="Countdown to January 1, 2026 00:00:00 UTC">00 : 00 : 00 : 00</div>
+    <div class="label" aria-hidden="true">DAYS  HOURS  MINUTES  SECONDS</div>
+    <div class="tz">Target: 01/01/2026 00:00:00 <strong>UTC</strong></div>
+  </div>
 
-    <p>The damned will rise on January 1, 2026</p>
+  <p id="tagline">The damned will rise on January 1, 2026</p>
 
-    <div class="visitor-count">
-        Souls trapped in the abyss. <span id="visitor-number">0</span> 💀
-    </div>
+  <div class="visitor-count">
+    Souls trapped in the abyss. <span id="visitor-number">0</span> 💀
+  </div>
 
-    <!-- Audio leggero -->
-    <audio id="demonic-whispers" loop preload="none">
-        <source src="https://cdn.pixabay.com/download/audio/2022/10/26/audio_1c5d7f1e1a.mp3?filename=horror-ambience-6664.mp3" type="audio/mpeg">
-    </audio>
+  <!-- Audio (avvio solo su gesto) -->
+  <audio id="demonic-whispers" loop preload="none">
+    <source src="https://cdn.pixabay.com/download/audio/2022/10/26/audio_1c5d7fname=horror-ambience-6664.mp3
+  </audio>
 
-    <!-- Contatore visite Statcounter -->
-    <script type="text/javascript">
-    var sc_project=12960820; 
-    var sc_invisible=1; 
-    var sc_security="5e3b2d89"; 
-    </script>
-    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+  <!-- CTA: appare a fine countdown -->
+  <div class="cta" id="cta">
+    https://open.spotify.com/artist/your-idLISTEN ON SPOTIFY</a>
+    <a href="https://music.apple.comour-idAPPLE MUSIC</a>
+    https://youtu.be/your-videoWATCH VIDEO</a>
+    <a href="https://your-store.exampleRCH BUNDLE</a>
+  </div>
 
-    <script>
-        // Sblocca audio al tocco/clic
-        const unlockAudio = () => {
-            document.getElementById('demonic-whispers').play().catch(() => {});
-            document.body.removeEventListener('touchstart', unlockAudio);
-            document.body.removeEventListener('click', unlockAudio);
-        };
-        document.body.addEventListener('touchstart', unlockAudio, { once: true });
-        document.body.addEventListener('click', unlockAudio, { once: true });
+  <!-- Statcounter (valuta cookie banner per GDPR) -->
+  <script>
+    // Per evitare errori se blocchi terze parti
+    window.addEventListener('error', () => {}, true);
+  </script>
+  <script>
+    var sc_project=12960820;
+    var sc_invisible=1;
+    var sc_security="5e3b2d89";
+  </script>
+  https://www.statcounter.com/counter/counter.js</script>
 
-        // Countdown al 01/01/2026
-        const targetDate = new Date("2026-01-01T00:00:00Z").getTime();
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
+  <script>
+    // Sblocca audio al tocco/click (safe fallback)
+    const audioEl = document.getElementById('demonic-whispers');
+    const unlockAudio = () => {
+      audioEl.volume = 0.2;
+      audioEl.play().catch(() => {});
+      document.body.removeEventListener('touchstart', unlockAudio);
+      document.body.removeEventListener('click', unlockAudio);
+    };
+    document.body.addEventListener('touchstart', unlockAudio, { once: true });
+    document.body.addEventListener('click', unlockAudio, { once: true });
 
-            if (distance < 0) {
-                document.getElementById("countdown").innerHTML = "MISERY UNLEASHED";
-                document.querySelector("p").innerHTML = "Non c'è salvezza";
-                return;
-            }
+    // Countdown a 01/01/2026 00:00:00 UTC
+    const targetUtc = Date.UTC(2026, 0, 1, 0, 0, 0); // mesi 0-based
+    const $cd = document.getElementById('countdown');
+    const $tag = document.getElementById('tagline');
+    const $cta = document.getElementById('cta');
 
-            const days = Math.floor(distance / 86400000);
-            const hours = Math.floor((distance % 86400000) / 3600000);
-            const minutes = Math.floor((distance % 3600000) / 60000);
-            const seconds = Math.floor((distance % 60000) / 1000);
+    let timer = null;
 
-            document.getElementById("countdown").innerHTML = 
-                `${days}<span style="opacity:0.3"> : </span>` +
-                `${hours.toString().padStart(2, '0')}<span style="opacity:0.3"> : </span>` +
-                `${minutes.toString().padStart(2, '0')}<span style="opacity:0.3"> : </span>` +
-                `${seconds.toString().padStart(2, '0')}`;
-        }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+    function format(num) { return num.toString().padStart(2, '0'); }
 
-        // Aggiorna contatore visite
-        setInterval(() => {
-            if (typeof sc_hits !== 'undefined') {
-                document.getElementById('visitor-number').textContent = sc_hits;
-            }
-        }, 4000);
+    function tick() {
+      const now = Date.now();
+      const diff = targetUtc - now;
 
-        // Teschi leggeri
-        setInterval(() => {
-            const skull = document.createElement("div");
-            skull.className = "skull";
-            skull.textContent = "💀";
-            skull.style.left = Math.random() * 90 + 5 + "vw";
-            skull.style.animationDuration = 15 + Math.random() * 10 + "s";
-            document.body.appendChild(skull);
-            setTimeout(() => skull.remove(), 30000);
-        }, 2500);
-    </script>
+      if (diff <= 0) {
+        clearInterval(timer);
+        $cd.textContent = 'MISERY UNLEASHED';
+        $tag.textContent = "There is no salvation.";
+        $cta.style.display = 'flex';
+        return;
+      }
+
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff % 86400000) / 3600000);
+      const minutes = Math.floor((diff % 3600000) / 60000);
+      const seconds = Math.floor((diff % 60000) / 1000);
+
+      // Aggiorno solo il testo, niente innerHTML complesso -> meno reflow
+      $cd.textContent = `${days} : ${format(hours)} : ${format(minutes)} : ${format(seconds)}`;
+    }
+
+    timer = setInterval(tick, 1000);
+    tick();
+
+    // Aggiorna contatore visite da Statcounter (se disponibile)
+    const visitorEl = document.getElementById('visitor-number');
+    const updateVisitors = () => {
+      if (typeof window.sc_hits !== 'undefined') {
+        visitorEl.textContent = window.sc_hits;
+      }
+    };
+    setInterval(updateVisitors, 4000);
+
+    // Teschi leggeri
+    const addSkull = () => {
+      const skull = document.createElement('div');
+      skull.className = 'skull';
+      skull.textContent = '💀';
+      skull.style.left = (Math.random() * 90 + 5) + 'vw';
+      skull.style.animationDuration = (15 + Math.random() * 10) + 's';
+      document.body.appendChild(skull);
+      setTimeout(() => skull.remove(), 30000);
+    };
+    const skullInt = setInterval(addSkull, 2500);
+
+    // Pulisci intervalli quando si chiude la pagina
+    window.addEventListener('beforeunload', () => {
+      clearInterval(timer);
+      clearInterval(skullInt);
+    }, { passive: true });
+  </script>
 </body>
 </html>
-
+``
