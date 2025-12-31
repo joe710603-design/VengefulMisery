@@ -24,14 +24,14 @@ HTML<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Vengeful Misery</title>
-    <meta name="description" content="Il countdown verso la miseria vendicativa è iniziato...">
+    <meta name="description" content="Il countdown verso la miseria vendicativa...">
     <style>
         * { box-sizing: border-box; }
         body {
             margin: 0;
-            padding: 0;
+            padding: 20px;
             min-height: 100vh;
-            background: #000;
+            background: linear-gradient(to bottom, #000 0%, #220000 50%, #000 100%);
             color: #ff2200;
             font-family: 'Creepster', 'Courier New', monospace;
             text-align: center;
@@ -43,122 +43,133 @@ HTML<!DOCTYPE html>
             justify-content: center;
         }
 
-        #hell-flames {
+        /* Fiamme leggere con CSS (molto più leggero del canvas) */
+        body::before {
+            content: '';
             position: absolute;
             top: 0; left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(transparent, rgba(255,50,0,0.3));
+            background-size: 100% 200%;
+            animation: flames 12s linear infinite;
             pointer-events: none;
             z-index: 1;
         }
 
+        @keyframes flames {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100%; }
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%; height: 50%;
+            background: radial-gradient(circle at center, rgba(255,100,0,0.4) 0%, transparent 70%);
+            animation: pulse-flame 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes pulse-flame {
+            0%,100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+
         h1 {
-            font-size: clamp(3rem, 12vw, 8rem);
-            margin: 0 0 10px 0;
-            text-shadow: 0 0 40px #ff0000, 0 0 80px #880000, 0 0 120px #aa0000;
-            letter-spacing: clamp(10px, 4vw, 20px);
-            animation: vengeance-flicker 2s infinite alternate;
+            font-size: clamp(2.8rem, 11vw, 7rem);
+            margin: 0 0 10px;
+            text-shadow: 0 0 30px #ff0000, 0 0 60px #880000;
+            letter-spacing: clamp(8px, 3vw, 20px);
+            animation: flicker 2.5s infinite alternate;
             position: relative;
             z-index: 10;
         }
 
-        @keyframes vengeance-flicker {
-            0%,100% { opacity: 1; text-shadow: 0 0 40px #ff0000, 0 0 80px #ff2200; }
-            50% { opacity: 0.85; text-shadow: 0 0 60px #ff0000, 0 0 120px #aa0000; }
+        @keyframes flicker {
+            0%,100% { opacity: 1; }
+            50% { opacity: 0.85; }
         }
 
         .countdown-container {
             margin: 20px 0;
-            padding: 0 10px;
             position: relative;
             z-index: 10;
         }
 
         .countdown {
-            font-size: clamp(2.5rem, 10vw, 6rem);
-            letter-spacing: clamp(10px, 5vw, 30px);
-            text-shadow: 0 0 40px #ff0000, 0 0 80px #ff2200, 0 0 120px #aa0000;
-            animation: hell-glow 1.8s infinite alternate;
-            white-space: nowrap;
+            font-size: clamp(2.2rem, 9vw, 5.5rem);
+            letter-spacing: clamp(8px, 4vw, 25px);
+            text-shadow: 0 0 30px #ff0000, 0 0 60px #ff2200;
+            animation: glow 2s infinite alternate;
         }
 
-        @keyframes hell-glow {
-            0% { text-shadow: 0 0 40px #ff0000; }
-            100% { text-shadow: 0 0 80px #ff3300, 0 0 140px #ff0000; }
+        @keyframes glow {
+            0% { text-shadow: 0 0 30px #ff0000; }
+            100% { text-shadow: 0 0 50px #ff3300, 0 0 80px #ff0000; }
         }
 
         .label {
-            font-size: clamp(1rem, 3.5vw, 2rem);
-            letter-spacing: clamp(8px, 3vw, 20px);
+            font-size: clamp(0.9rem, 3vw, 1.8rem);
+            letter-spacing: clamp(6px, 2.5vw, 15px);
             margin-top: 8px;
             opacity: 0.9;
-            text-shadow: 0 0 15px #ff0000;
+            text-shadow: 0 0 10px #ff0000;
         }
 
         p {
-            font-size: clamp(1.3rem, 4vw, 2.5rem);
+            font-size: clamp(1.2rem, 3.8vw, 2.3rem);
             margin: 15px 20px;
-            text-shadow: 0 0 30px #ff0000;
+            text-shadow: 0 0 20px #ff0000;
             opacity: 0.9;
-            animation: misery-pulse 4s infinite;
+            animation: pulse-text 5s infinite;
         }
 
-        .visitor-count {
-            font-size: clamp(1.4rem, 4.5vw, 2.2rem);
-            margin: 20px 0;
-            text-shadow: 0 0 25px #ff0000;
-            opacity: 0.9;
-        }
-
-        .visitor-count span {
-            color: #ff4400;
-            font-size: clamp(1.8rem, 6vw, 2.8rem);
-            animation: pulse-red 2s infinite;
-        }
-
-        @keyframes pulse-red {
-            0%,100% { text-shadow: 0 0 20px #ff0000; }
-            50% { text-shadow: 0 0 40px #ff2200; }
-        }
-
-        @keyframes misery-pulse {
+        @keyframes pulse-text {
             0%,100% { opacity: 0.7; }
             50% { opacity: 1; }
         }
 
+        .visitor-count {
+            font-size: clamp(1.3rem, 4vw, 2rem);
+            margin: 25px 0 10px;
+            text-shadow: 0 0 20px #ff0000;
+            opacity: 0.9;
+            position: relative;
+            z-index: 10;
+        }
+
+        .visitor-count span {
+            color: #ff4400;
+            font-size: clamp(1.6rem, 5.5vw, 2.5rem);
+            animation: pulse-red 2s infinite;
+        }
+
+        @keyframes pulse-red {
+            0%,100% { text-shadow: 0 0 15px #ff0000; }
+            50% { text-shadow: 0 0 30px #ff2200; }
+        }
+
         .skull {
             position: absolute;
-            font-size: clamp(3rem, 10vw, 5rem);
-            opacity: 0.6;
-            animation: float-skull linear infinite;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            opacity: 0.5;
+            animation: float-skull 20s linear infinite;
             pointer-events: none;
             z-index: 5;
         }
 
         @keyframes float-skull {
-            0% { transform: translateY(100vh) rotate(0deg) scale(0.7); }
-            100% { transform: translateY(-200px) rotate(360deg) scale(1.5); }
-        }
-
-        .blood-drip {
-            position: absolute;
-            width: 6px;
-            background: linear-gradient(transparent, #880000);
-            animation: drip 6s infinite;
-            opacity: 0.9;
-            z-index: 5;
-        }
-
-        @keyframes drip {
-            0% { height: 0; top: 0; }
-            60% { height: 200px; }
-            100% { height: 200px; top: 100vh; }
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.5; }
+            80% { opacity: 0.5; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="hell-flames"></div>
 
     <h1>VENGEFUL MISERY</h1>
 
@@ -173,18 +184,12 @@ HTML<!DOCTYPE html>
         Anime intrappolate nell'abisso: <span id="visitor-number">0</span> 💀
     </div>
 
-    <!-- Audio demoniaco -->
-    <audio id="demonic-whispers" loop preload="auto">
+    <!-- Audio leggero (caricato solo al tocco) -->
+    <audio id="demonic-whispers" loop preload="none">
         <source src="https://cdn.pixabay.com/download/audio/2022/10/26/audio_1c5d7f1e1a.mp3?filename=horror-ambience-6664.mp3" type="audio/mpeg">
     </audio>
-    <audio id="deep-whispers" loop preload="auto">
-        <source src="https://cdn.pixabay.com/download/audio/2023/08/15/audio_1f7e9b2e5d.mp3?filename=evil-laugh-6944.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="hell-wind" loop preload="auto">
-        <source src="https://freesound.org/data/previews/145/145917_2613395-lq.mp3" type="audio/mpeg">
-    </audio>
 
-    <!-- Statcounter (contatore visite) -->
+    <!-- Contatore visite Statcounter -->
     <script type="text/javascript">
     var sc_project=12960820; 
     var sc_invisible=1; 
@@ -193,15 +198,14 @@ HTML<!DOCTYPE html>
     <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
 
     <script>
-        // Sblocca audio al primo tocco/clic (obbligatorio sui mobile)
+        // Sblocca audio al primo tocco/clic
+        const unlockAudio = () => {
+            document.getElementById('demonic-whispers').play().catch(() => {});
+            document.body.removeEventListener('touchstart', unlockAudio);
+            document.body.removeEventListener('click', unlockAudio);
+        };
         document.body.addEventListener('touchstart', unlockAudio, { once: true });
         document.body.addEventListener('click', unlockAudio, { once: true });
-
-        function unlockAudio() {
-            document.getElementById('demonic-whispers').play().catch(() => {});
-            document.getElementById('deep-whispers').play().catch(() => {});
-            document.getElementById('hell-wind').play().catch(() => {});
-        }
 
         // Countdown al 01/01/2026
         const targetDate = new Date("2026-01-01T00:00:00Z").getTime();
@@ -229,77 +233,23 @@ HTML<!DOCTYPE html>
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        // Aggiorna contatore visite visibile
+        // Aggiorna contatore visite
         setInterval(() => {
             if (typeof sc_hits !== 'undefined') {
                 document.getElementById('visitor-number').textContent = sc_hits;
             }
-        }, 3000);
+        }, 4000);
 
-        // Fiamme infernali (ottimizzate per mobile)
-        const canvas = document.createElement('canvas');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        document.getElementById('hell-flames').appendChild(canvas);
-        const ctx = canvas.getContext('2d');
-
-        const flameCount = window.innerWidth < 768 ? 50 : 100; // meno fiamme sui cellulari
-        const flames = [];
-        for (let i = 0; i < flameCount; i++) {
-            flames.push({
-                x: Math.random() * canvas.width,
-                y: canvas.height + 150,
-                height: 150 + Math.random() * 300,
-                speed: 0.8 + Math.random() * 1.5,
-                opacity: 0.3 + Math.random() * 0.4
-            });
-        }
-
-        function drawFlames() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            flames.forEach(flame => {
-                const gradient = ctx.createLinearGradient(flame.x, canvas.height, flame.x, canvas.height - flame.height);
-                gradient.addColorStop(0, `rgba(255, 80, 0, ${flame.opacity})`);
-                gradient.addColorStop(0.3, `rgba(255, 40, 0, ${flame.opacity * 0.8})`);
-                gradient.addColorStop(0.7, `rgba(200, 0, 0, ${flame.opacity * 0.5})`);
-                gradient.addColorStop(1, `rgba(80, 0, 0, 0)`);
-                ctx.fillStyle = gradient;
-                ctx.fillRect(flame.x - 40, canvas.height - flame.height, 80, flame.height);
-
-                flame.y -= flame.speed;
-                if (flame.y < -150) {
-                    flame.y = canvas.height + 150;
-                    flame.x = Math.random() * canvas.width;
-                }
-            });
-            requestAnimationFrame(drawFlames);
-        }
-        drawFlames();
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-
-        // Teschi e sangue (meno frequenti su mobile per prestazioni)
-        const skullInterval = window.innerWidth < 768 ? 1000 : 600;
+        // Teschi fluttuanti leggeri (solo 1 ogni 2-3 secondi su mobile)
         setInterval(() => {
             const skull = document.createElement("div");
             skull.className = "skull";
             skull.textContent = "💀";
-            skull.style.left = Math.random() * 100 + "vw";
-            skull.style.animationDuration = 12 + Math.random() * 12 + "s";
+            skull.style.left = Math.random() * 90 + 5 + "vw";
+            skull.style.animationDuration = 15 + Math.random() * 10 + "s";
             document.body.appendChild(skull);
             setTimeout(() => skull.remove(), 30000);
-        }, skullInterval);
-
-        setInterval(() => {
-            const drip = document.createElement("div");
-            drip.className = "blood-drip";
-            drip.style.left = Math.random() * 100 + "vw";
-            document.body.appendChild(drip);
-            setTimeout(() => drip.remove(), 7000);
-        }, 1000);
+        }, 2500);
     </script>
 </body>
 </html>
