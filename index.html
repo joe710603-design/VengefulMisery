@@ -1,11 +1,11 @@
 
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vengeful Misery — Official Site</title>
-  <meta name="description" content="Vengeful Misery — Gothic/Extreme Metal band. New album 'Rise of the Damned' out January 1, 2026. Tour, music, merch, videos." />
+  <meta name="description" content="Vengeful Misery — Gothic/Extreme Metal band. New album 'Rise of the Damned' out January 1, 2026. Music, videos, tour, merch." />
   <meta name="theme-color" content="#0b0000" />
 
   <!-- Open Graph / Twitter -->
@@ -51,9 +51,7 @@
       background:linear-gradient(180deg,rgba(10,0,0,.9),rgba(10,0,0,.6));
       border-bottom:1px solid var(--border);
     }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between; padding:12px 0;
-    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
     .brand{
       font-family:'Creepster',cursive; letter-spacing:4px; font-size:28px; color:var(--red);
       text-shadow: 0 0 10px var(--red);
@@ -64,6 +62,7 @@
     .social{display:flex; gap:10px}
     .social a{width:32px; height:32px; display:grid; place-items:center; border:1px solid var(--border); border-radius:8px; background:#0d0000}
     .social a:hover{border-color:var(--red)}
+
     /* Hero */
     .hero{
       position:relative; overflow:hidden;
@@ -77,13 +76,12 @@
     }
     .subtitle{color:var(--muted); margin-top:6px}
     .cta{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px}
-    .btn{
-      padding:10px 14px; border:1px solid var(--border); border-radius:10px; background:#0c0000; color:var(--text);
-    }
+    .btn{padding:10px 14px; border:1px solid var(--border); border-radius:10px; background:#0c0000; color:var(--text)}
     .btn.primary{border-color:var(--red); background:linear-gradient(180deg,#260000,#130000)}
     .btn:hover{transform:translateY(-1px); transition:transform .15s}
     .cover{border:1px solid var(--border); border-radius:12px; overflow:hidden; background:#0d0000}
     .badge{display:inline-block; margin-top:8px; font-size:12px; color:#ffa0a0}
+
     /* Sections */
     section{padding:34px 0; border-bottom:1px solid var(--border)}
     h2{
@@ -105,36 +103,42 @@
       border-radius:12px; padding:14px;
     }
     .card h3{margin:0 0 6px 0}
-    /* Music embeds */
+
+    /* Embeds */
     .embed{border:0; width:100%; border-radius:12px; height:152px; background:#0c0000}
+
     /* Video */
     .video{border-radius:12px; overflow:hidden; border:1px solid var(--border); background:#000}
     .video iframe{aspect-ratio:16/9; width:100%}
+
     /* Tour table */
     table{width:100%; border-collapse:collapse}
     th,td{padding:10px; border-bottom:1px solid var(--border)}
     th{text-align:left; color:#ff9b9b}
     tr:hover{background:#0d0000}
     .soldout{color:#ff6b6b}
+
     /* Gallery */
     .gallery{display:grid; gap:8px; grid-template-columns:repeat(3,1fr)}
     .gallery img{border-radius:10px; border:1px solid var(--border); cursor:pointer}
     @media (max-width:720px){.gallery{grid-template-columns:repeat(2,1fr)}}
+
     /* Modal */
     .modal{position:fixed; inset:0; display:none; background:rgba(0,0,0,.85); z-index:90}
     .modal-inner{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); max-width:min(92vw,1100px)}
     .modal img{max-height:80vh; border-radius:10px; border:1px solid var(--border)}
     .modal button{position:absolute; top:20px; right:20px; padding:8px 12px}
-    /* Newsletter & Contact */
+
+    /* Forms */
     form{display:grid; gap:10px}
     input,textarea,select{
       background:#0d0000; border:1px solid var(--border); border-radius:8px; color:var(--text);
       padding:10px; font-size:16px
     }
     input::placeholder,textarea::placeholder{color:#a78f8f}
-    footer{
-      padding:20px 0; text-align:center; color:#a88f8f
-    }
+
+    footer{padding:20px 0; text-align:center; color:#a88f8f}
+
     /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
       .brand,.title{ text-shadow:none }
@@ -150,18 +154,20 @@
       <nav class="menu" aria-label="Main navigation">
         #aboutAbout</a>
         #musicMusic</a>
-        #videoVideo</a>
+        #videoVideos</a>
         #tourTour</a>
         #galleryGallery</a>
         #merchMerch</a>
         #newsNews</a>
         #contactContact</a>
       </nav>
-      <div class="social" aria-label="Social">
+      <div class="social" aria-label="Social links">
         https://instagram.com/your-band🖤</a>
         https://youtube.com/@your-band▶️</a>
         https://open.spotify.com/artist/your-id🎧</a>
-        <a href="https://tiktok.com/@your-band" aria-label="TikTok>
+        https://tiktok.com/@your-band🎵</a>
+      </div>
+    </div>
   </header>
 
   <!-- Hero -->
@@ -177,7 +183,7 @@
         </div>
 
         <div class="cta">
-          <a class="btn primary" href="https://open.spotify.com/intl-it/si=3316b012db614f0cListen on Spotify</a>
+          <a class="btn primary" href="https://open.spotify.com/intl-it/track/5leLnCz23Z7ogYgsten on Spotify</a>
           #musicDiscography</a>
           #tourTour Dates</a>
           #merchMerch</a>
@@ -186,8 +192,11 @@
       </div>
 
       <div class="cover">
-        <!-- Sostituisci questa immagine con la copertina ufficiale -->
-        <img src="assets/cover-square.jpg" alt="Album cover: Riseon>
+        <!-- Replace with official cover image -->
+        assets/cover-square.jpg
+      </div>
+    </div>
+  </section>
 
   <!-- About -->
   <section id="about">
@@ -196,11 +205,11 @@
         <h2>About</h2>
         <p>
           Vengeful Misery is a gothic/extreme metal band forged in shadows and dissonance.
-          Blending blast beats, dark atmospheres and melodic despair, the band delivers
+          Blending blast beats, dark atmospheres, and melodic despair, the band delivers
           a fierce soundscape for those who embrace the abyss.
         </p>
         <p style="color:var(--muted)">
-          Members: Vocals • Guitars • Bass • Drums • Keys (update with actual names).  
+          Members: Vocals • Guitars • Bass • Drums • Keys (update with actual names).<br />
           Influences: Black/Gothic/Death metal, cinematic dark ambient.
         </p>
       </div>
@@ -223,7 +232,7 @@
         <div class="card">
           <h3>Dead Rising</h3>
           https://open.spotify.com/embed/track/5leLnCz23Z7ogYgMrxDWKP?theme=0</iframe>
-          <small style="color:var(--muted)">Spotify embed • Change theme or track IDs as needed.</small>
+          <small style="color:var(--muted)">Spotify embed • Replace with album/artist embeds as needed.</small>
         </div>
         <div class="card">
           <h3>Echoes of the Crimson Veil</h3>
@@ -231,6 +240,7 @@
           <small style="color:var(--muted)">Placeholder track • Replace with your URL.</small>
         </div>
       </div>
+
       <div class="card" style="margin-top:16px">
         <h3>Tracklist — Rise of the Damned</h3>
         <ol style="margin:0; padding-left:18px">
@@ -251,194 +261,9 @@
     </div>
   </section>
 
-  <!-- Video -->
+  <!-- Videos -->
   <section id="video">
     <div class="container">
-      <h2>Video</h2>
+      <h2>Videos</h2>
       <div class="grid cols-2">
         <div class="video">
-          <iframe src="https://www.youtube.com/embed/your-video-id" title="Dead Rising (Official Video)" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope     </div>
-    </div>
-  </section>
-
-  <!-- Tour -->
-  <section id="tour">
-    <div class="container">
-      <h2>Tour</h2>
-      <div class="card">
-        <table aria-label="Tour dates">
-          <thead>
-            <tr><th>Date</th><th>City</th><th>Venue</th><th>Tickets</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Jan 12, 2026</td><td>Milan, IT</td><td>Live Club</td><td>https://tickets.example/milanBuy</a></td></tr>
-            <tr><td>Jan 19, 2026</td><td>Munich, DE</td><td>Backstage</td><td>https://tickets.example/munichBuy</a></td></tr>
-            <tr><td>Jan 26, 2026</td><td>Paris, FR</td><td>La Machine</td><td><span class="soldout">Sold Out</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery -->
-  <section id="gallery">
-    <div class="container">
-      <h2>Gallery</h2>
-      <div class="gallery" aria-live="polite">
-        assets/live-1.jpg
-        assets/live-2.jpg
-        assets/live-3.jpg
-        assets/studio-1.jpg
-        assets/studio-2.jpg
-        assets/studio-3.jpg
-      </div>
-    </div>
-  </section>
-
-  <!-- Merch -->
-  <section id="merch">
-    <div class="container">
-      <h2>Merch</h2>
-      <div class="grid cols-3">
-        <div class="card">
-          assets/merch-shirt.jpg
-          <h3>Rise of the Damned Tee</h3>
-          <p style="color:var(--muted)">Sizes S–XXL • Black</p>
-          https://your-store.example/item/teeBuy</a>
-        </div>
-        <div class="card">
-          assets/merch-hoodie.jpg
-          <h3>Vengeful Hoodie</h3>
-          <p style="color:var(--muted)">Limited edition</p>
-          https://your-store.example/item/hoodieBuy</a>
-        </div>
-        <div class="card">
-          assets/merch-poster.jpg
-          <h3>Crimson Veil Poster</h3>
-          <p style="color:var(--muted)">A2 • High-quality print</p>
-          https://your-store.example/item/posterBuy</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- News / Newsletter -->
-  <section id="news">
-    <div class="container grid cols-2">
-      <div>
-        <h2>News</h2>
-        <div class="card">
-          <h3>Album Release</h3>
-          <p>“Rise of the Damned” arrives on January 1, 2026. Pre-save now and embrace the chaos.</p>
-        </div>
-        <div class="card">
-          <h3>New Single</h3>
-          <p><em>Dead Rising</em> out now on all platforms. Watch the official video on YouTube.</p>
-        </div>
-      </div>
-      <div>
-        <h2>Newsletter</h2>
-        <div class="card">
-          <form id="newsletter" aria-label="Newsletter form">
-            <input type="email" name="email" placeholder="Your email" required />
-            <select name="freq">
-              <option value="monthly">Monthly updates</option>
-              <option value="tour">Tour only</option>
-              <option value="all">All news</option>
-            </select>
-            <button class="btn primary" type="submit">Subscribe</button>
-            <small style="color:var(--muted)">We respect your privacy.</small>
-          </form>
-          <div id="news-success" role="status" style="display:none; margin-top:8px; color:#a0ffb0">Subscribed! Check your inbox.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <div class="container grid cols-2">
-      <div>
-        <h2>Contact & Booking</h2>
-        <div class="card">
-          <p>For booking, press and collaborations:</p>
-          <p><strong>Email:</strong> mailto:booking@vengefulmisery.combooking@vengefulmisery.com</a></p>
-          <p><strong>Management:</strong> Dark Moon Agency</p>
-        </div>
-      </div>
-      <div>
-        <h2>Message the Band</h2>
-        <div class="card">
-          <form id="contact-form" aria-label="Contact form">
-            <input type="text" name="name" placeholder="Your name" required />
-            <input type="email" name="email" placeholder="Your email" required />
-            <textarea name="message" rows="5" placeholder="Your message" required></textarea>
-            <button class="btn primary" type="submit">Send</button>
-          </form>
-          <div id="contact-success" role="status" style="display:none; margin-top:8px; color:#a0ffb0">Message sent! We’ll get back to you.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <div style="font-family:'Creepster',cursive; color:var(--red)">VENGEFUL MISERY</div>
-      <small>© 2025 Vengeful Misery. All rights reserved.</small>
-    </div>
-  </footer>
-
-  <script>
-    // Countdown to 01/01/2026 00:00:00 UTC
-    const targetUtc = Date.UTC(2026, 0, 1, 0, 0, 0);
-    const cdEl = document.getElementById('countdown');
-    function fmt(n){return n.toString().padStart(2,'0')}
-    function tick(){
-      const d = targetUtc - Date.now();
-      if (d <= 0){ cdEl.textContent = 'MISERY UNLEASHED'; return; }
-      const days = Math.floor(d/86400000);
-      const hours = Math.floor((d%86400000)/3600000);
-      const mins  = Math.floor((d%3600000)/60000);
-      const secs  = Math.floor((d%60000)/1000);
-      cdEl.textContent = `${days} : ${fmt(hours)} : ${fmt(mins)} : ${fmt(secs)}`;
-    }
-    setInterval(tick,1000); tick();
-
-    // Newsletter (front-end demo)
-    const newsForm = document.getElementById('newsletter');
-    const newsOk = document.getElementById('news-success');
-    newsForm.addEventListener('submit',(e)=>{
-      e.preventDefault();
-      // TODO: integra con Mailchimp/SendGrid
-      newsOk.style.display='block';
-      newsForm.reset();
-      setTimeout(()=>newsOk.style.display='none',4000);
-    });
-
-    // Contact form (front-end demo)
-    const contactForm = document.getElementById('contact-form');
-    const contactOk = document.getElementById('contact-success');
-    contactForm.addEventListener('submit',(e)=>{
-      e.preventDefault();
-      // TODO: integra backend (EmailJS, Netlify Forms, server)
-      contactOk.style.display='block';
-      contactForm.reset();
-      setTimeout(()=>contactOk.style.display='none',4000);
-    });
-
-    // Gallery modal
-    const modal = document.createElement('div'); modal.className='modal'; modal.innerHTML='<div class="modal-inner"><img alt=""><button class="btn">Close</button></div>';
-    document.body.appendChild(modal);
-    const modalImg = modal.querySelector('img');
-    const modalBtn = modal.querySelector('button');
-    document.querySelectorAll('.gallery img').forEach(img=>{
-      img.addEventListener('click',()=>{
-        modalImg.src = img.src;
-        modal.style.display='block';
-      });
-    });
-    modalBtn.addEventListener('click',()=> modal.style.display='none');
-    modal.addEventListener('click',(e)=>{ if(e.target===modal) modal.style.display='none'; });
-  </script>
-</body>
-</html>
