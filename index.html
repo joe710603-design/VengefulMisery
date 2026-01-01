@@ -1,305 +1,444 @@
-Here's your upgraded, far more infernal and spooky countdown to January 1, 2026 (00:00:00 UTC):
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-HTML<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Vengeful Misery</title>
-    <meta name="description" content="Il countdown verso la miseria vendicativa è iniziato...">
-    <style>
-        * { box-sizing: border-box; }
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            background: #000;
-            color: #ff2200;
-            font-family: 'Creepster', 'Courier New', monospace;
-            text-align: center;
-            overflow: hidden;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vengeful Misery — Official Site</title>
+  <meta name="description" content="Vengeful Misery — Gothic/Extreme Metal band. New album 'Rise of the Damned' out January 1, 2026. Tour, music, merch, videos." />
+  <meta name="theme-color" content="#0b0000" />
 
-        #hell-flames {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Vengeful Misery — Official Site" />
+  <meta property="og:description" content="New album 'Rise of the Damned' out January 1, 2026. Explore music, videos, tour dates & merch." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/cover-1200x630.jpg" />
+  <meta property="og:url" content="https://your-domain.example/" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-        h1 {
-            font-size: clamp(3rem, 12vw, 8rem);
-            margin: 0 0 10px 0;
-            text-shadow: 0 0 40px #ff0000, 0 0 80px #880000, 0 0 120px #aa0000;
-            letter-spacing: clamp(10px, 4vw, 20px);
-            animation: vengeance-flicker 2s infinite alternate;
-            position: relative;
-            z-index: 10;
-        }
+  <!-- Fonts -->
+  https://fonts.googleapis.com
+  https://fonts.gstatic.com
+  https://fonts.googleapis.com/css2?family=Creepster&family=Inter:wght@300;500;700&display=swap
 
-        @keyframes vengeance-flicker {
-            0%,100% { opacity: 1; text-shadow: 0 0 40px #ff0000, 0 0 80px #ff2200; }
-            50% { opacity: 0.85; text-shadow: 0 0 60px #ff0000, 0 0 120px #aa0000; }
-        }
+  <!-- Favicon -->
+  assets/favicon.png
 
-        .countdown-container {
-            margin: 20px 0;
-            padding: 0 10px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .countdown {
-            font-size: clamp(2.5rem, 10vw, 6rem);
-            letter-spacing: clamp(10px, 5vw, 30px);
-            text-shadow: 0 0 40px #ff0000, 0 0 80px #ff2200, 0 0 120px #aa0000;
-            animation: hell-glow 1.8s infinite alternate;
-            white-space: nowrap;
-        }
-
-        @keyframes hell-glow {
-            0% { text-shadow: 0 0 40px #ff0000; }
-            100% { text-shadow: 0 0 80px #ff3300, 0 0 140px #ff0000; }
-        }
-
-        .label {
-            font-size: clamp(1rem, 3.5vw, 2rem);
-            letter-spacing: clamp(8px, 3vw, 20px);
-            margin-top: 8px;
-            opacity: 0.9;
-            text-shadow: 0 0 15px #ff0000;
-        }
-
-        p {
-            font-size: clamp(1.3rem, 4vw, 2.5rem);
-            margin: 15px 20px;
-            text-shadow: 0 0 30px #ff0000;
-            opacity: 0.9;
-            animation: misery-pulse 4s infinite;
-        }
-
-        .visitor-count {
-            font-size: clamp(1.4rem, 4.5vw, 2.2rem);
-            margin: 20px 0;
-            text-shadow: 0 0 25px #ff0000;
-            opacity: 0.9;
-        }
-
-        .visitor-count span {
-            color: #ff4400;
-            font-size: clamp(1.8rem, 6vw, 2.8rem);
-            animation: pulse-red 2s infinite;
-        }
-
-        @keyframes pulse-red {
-            0%,100% { text-shadow: 0 0 20px #ff0000; }
-            50% { text-shadow: 0 0 40px #ff2200; }
-        }
-
-        @keyframes misery-pulse {
-            0%,100% { opacity: 0.7; }
-            50% { opacity: 1; }
-        }
-
-        .skull {
-            position: absolute;
-            font-size: clamp(3rem, 10vw, 5rem);
-            opacity: 0.6;
-            animation: float-skull linear infinite;
-            pointer-events: none;
-            z-index: 5;
-        }
-
-        @keyframes float-skull {
-            0% { transform: translateY(100vh) rotate(0deg) scale(0.7); }
-            100% { transform: translateY(-200px) rotate(360deg) scale(1.5); }
-        }
-
-        .blood-drip {
-            position: absolute;
-            width: 6px;
-            background: linear-gradient(transparent, #880000);
-            animation: drip 6s infinite;
-            opacity: 0.9;
-            z-index: 5;
-        }
-
-        @keyframes drip {
-            0% { height: 0; top: 0; }
-            60% { height: 200px; }
-            100% { height: 200px; top: 100vh; }
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#060000;
+      --bg2:#140000;
+      --red:#e40000;
+      --red-soft:#ff3b3b;
+      --text:#f3eaea;
+      --muted:#c9bcbc;
+      --card:#120000;
+      --border:#2a0000;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:linear-gradient(180deg,var(--bg),var(--bg2));
+      color:var(--text); font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto;
+    }
+    a{color:var(--red); text-decoration:none}
+    a:hover{color:var(--red-soft)}
+    img{max-width:100%; display:block}
+    .container{max-width:1100px; margin:0 auto; padding:0 20px}
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(6px);
+      background:linear-gradient(180deg,rgba(10,0,0,.9),rgba(10,0,0,.6));
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; padding:12px 0;
+    }
+    .brand{
+      font-family:'Creepster',cursive; letter-spacing:4px; font-size:28px; color:var(--red);
+      text-shadow: 0 0 10px var(--red);
+    }
+    .menu{display:flex; gap:16px; flex-wrap:wrap}
+    .menu a{color:var(--text); padding:8px 10px; border-radius:6px}
+    .menu a:hover{background:#1a0000}
+    .social{display:flex; gap:10px}
+    .social a{width:32px; height:32px; display:grid; place-items:center; border:1px solid var(--border); border-radius:8px; background:#0d0000}
+    .social a:hover{border-color:var(--red)}
+    /* Hero */
+    .hero{
+      position:relative; overflow:hidden;
+      border-bottom:1px solid var(--border);
+      background: radial-gradient(80% 60% at 50% 10%, rgba(180,0,0,.18), transparent 70%);
+    }
+    .hero-inner{display:grid; grid-template-columns:1.1fr .9fr; gap:26px; padding:34px 0}
+    .hero .title{
+      font-family:'Creepster',cursive; font-size:clamp(40px,7vw,96px); line-height:1; color:var(--red);
+      text-shadow:0 0 20px var(--red);
+    }
+    .subtitle{color:var(--muted); margin-top:6px}
+    .cta{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px}
+    .btn{
+      padding:10px 14px; border:1px solid var(--border); border-radius:10px; background:#0c0000; color:var(--text);
+    }
+    .btn.primary{border-color:var(--red); background:linear-gradient(180deg,#260000,#130000)}
+    .btn:hover{transform:translateY(-1px); transition:transform .15s}
+    .cover{border:1px solid var(--border); border-radius:12px; overflow:hidden; background:#0d0000}
+    .badge{display:inline-block; margin-top:8px; font-size:12px; color:#ffa0a0}
+    /* Sections */
+    section{padding:34px 0; border-bottom:1px solid var(--border)}
+    h2{
+      font-family:'Creepster',cursive; letter-spacing:2px; color:var(--red);
+      font-size:clamp(24px,3.8vw,42px);
+      text-shadow:0 0 10px var(--red);
+      margin:0 0 12px 0;
+    }
+    .grid{display:grid; gap:16px}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    @media (max-width:850px){
+      .hero-inner{grid-template-columns:1fr}
+      .grid.cols-2,.grid.cols-3{grid-template-columns:1fr}
+    }
+    .card{
+      background:linear-gradient(180deg,#0c0000,var(--card));
+      border:1px solid var(--border);
+      border-radius:12px; padding:14px;
+    }
+    .card h3{margin:0 0 6px 0}
+    /* Music embeds */
+    .embed{border:0; width:100%; border-radius:12px; height:152px; background:#0c0000}
+    /* Video */
+    .video{border-radius:12px; overflow:hidden; border:1px solid var(--border); background:#000}
+    .video iframe{aspect-ratio:16/9; width:100%}
+    /* Tour table */
+    table{width:100%; border-collapse:collapse}
+    th,td{padding:10px; border-bottom:1px solid var(--border)}
+    th{text-align:left; color:#ff9b9b}
+    tr:hover{background:#0d0000}
+    .soldout{color:#ff6b6b}
+    /* Gallery */
+    .gallery{display:grid; gap:8px; grid-template-columns:repeat(3,1fr)}
+    .gallery img{border-radius:10px; border:1px solid var(--border); cursor:pointer}
+    @media (max-width:720px){.gallery{grid-template-columns:repeat(2,1fr)}}
+    /* Modal */
+    .modal{position:fixed; inset:0; display:none; background:rgba(0,0,0,.85); z-index:90}
+    .modal-inner{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); max-width:min(92vw,1100px)}
+    .modal img{max-height:80vh; border-radius:10px; border:1px solid var(--border)}
+    .modal button{position:absolute; top:20px; right:20px; padding:8px 12px}
+    /* Newsletter & Contact */
+    form{display:grid; gap:10px}
+    input,textarea,select{
+      background:#0d0000; border:1px solid var(--border); border-radius:8px; color:var(--text);
+      padding:10px; font-size:16px
+    }
+    input::placeholder,textarea::placeholder{color:#a78f8f}
+    footer{
+      padding:20px 0; text-align:center; color:#a88f8f
+    }
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .brand,.title{ text-shadow:none }
+    }
+  </style>
 </head>
 <body>
-    <div id="hell-flames"></div>
 
-    <h1>VENGEFUL MISERY</h1>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand" aria-label="Vengeful Misery">VENGEFUL MISERY</div>
+      <nav class="menu" aria-label="Main navigation">
+        #aboutAbout</a>
+        #musicMusic</a>
+        #videoVideo</a>
+        #tourTour</a>
+        #galleryGallery</a>
+        #merchMerch</a>
+        #newsNews</a>
+        #contactContact</a>
+      </nav>
+      <div class="social" aria-label="Social">
+        https://instagram.com/your-band🖤</a>
+        https://youtube.com/@your-band▶️</a>
+        https://open.spotify.com/artist/your-id🎧</a>
+        <a href="https://tiktok.com/@your-band" aria-label="TikTok>
+  </header>
 
-    <div class="countdown-container">
-        <div class="countdown" id="countdown">00 : 00 : 00 : 00</div>
-        <div class="label">DAYS  HOURS  MINUTES  SECONDS</div>
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="container hero-inner">
+      <div>
+        <div class="title">Rise of the Damned</div>
+        <div class="subtitle">New album • Out January 1, 2026</div>
+
+        <!-- Countdown (UTC) -->
+        <div style="margin-top:10px" aria-live="polite">
+          <small style="color:#ffb3b3">Countdown (UTC): <span id="countdown">00 : 00 : 00 : 00</span></small>
+        </div>
+
+        <div class="cta">
+          <a class="btn primary" href="https://open.spotify.com/intl-it/si=3316b012db614f0cListen on Spotify</a>
+          #musicDiscography</a>
+          #tourTour Dates</a>
+          #merchMerch</a>
+        </div>
+        <span class="badge">“The damned will rise on January 1, 2026.”</span>
+      </div>
+
+      <div class="cover">
+        <!-- Sostituisci questa immagine con la copertina ufficiale -->
+        <img src="assets/cover-square.jpg" alt="Album cover: Riseon>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container grid cols-2">
+      <div>
+        <h2>About</h2>
+        <p>
+          Vengeful Misery is a gothic/extreme metal band forged in shadows and dissonance.
+          Blending blast beats, dark atmospheres and melodic despair, the band delivers
+          a fierce soundscape for those who embrace the abyss.
+        </p>
+        <p style="color:var(--muted)">
+          Members: Vocals • Guitars • Bass • Drums • Keys (update with actual names).  
+          Influences: Black/Gothic/Death metal, cinematic dark ambient.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Highlights</h3>
+        <ul style="margin:0; padding-left:18px">
+          <li>New album: <strong>Rise of the Damned</strong> (01/01/2026)</li>
+          <li>Singles: <em>Dead Rising</em>, <em>Thorns of the Moon</em>, <em>Lords of Destruction</em></li>
+          <li>Upcoming tour: Winter 2026 (EU)</li>
+        </ul>
+      </div>
     </div>
+  </section>
 
-    <p>I dannati sorgeranno il 1 gennaio 2026</p>
-
-    <div class="visitor-count">
-        Anime intrappolate nell'abisso: <span id="visitor-number">0</span> 💀
+  <!-- Music -->
+  <section id="music">
+    <div class="container">
+      <h2>Music</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Dead Rising</h3>
+          https://open.spotify.com/embed/track/5leLnCz23Z7ogYgMrxDWKP?theme=0</iframe>
+          <small style="color:var(--muted)">Spotify embed • Change theme or track IDs as needed.</small>
+        </div>
+        <div class="card">
+          <h3>Echoes of the Crimson Veil</h3>
+          https://open.spotify.com/embed/track/your-track-id?theme=0</iframe>
+          <small style="color:var(--muted)">Placeholder track • Replace with your URL.</small>
+        </div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h3>Tracklist — Rise of the Damned</h3>
+        <ol style="margin:0; padding-left:18px">
+          <li>Prelude of the Damned (Intro)</li>
+          <li>Dead Rising</li>
+          <li>Dark Moon</li>
+          <li>A Touch of Evil</li>
+          <li>Thorns of the Moon</li>
+          <li>My Pain</li>
+          <li>In the Name of the Holy</li>
+          <li>Lords of Destruction</li>
+          <li>Mental Chaos</li>
+          <li>Death in December</li>
+          <li>Evil</li>
+          <li>Echoes of the Crimson Veil</li>
+        </ol>
+      </div>
     </div>
+  </section>
 
-    <!-- Audio demoniaco -->
-    <audio id="demonic-whispers" loop preload="auto">
-        <source src="https://cdn.pixabay.com/download/audio/2022/10/26/audio_1c5d7f1e1a.mp3?filename=horror-ambience-6664.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="deep-whispers" loop preload="auto">
-        <source src="https://cdn.pixabay.com/download/audio/2023/08/15/audio_1f7e9b2e5d.mp3?filename=evil-laugh-6944.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="hell-wind" loop preload="auto">
-        <source src="https://freesound.org/data/previews/145/145917_2613395-lq.mp3" type="audio/mpeg">
-    </audio>
+  <!-- Video -->
+  <section id="video">
+    <div class="container">
+      <h2>Video</h2>
+      <div class="grid cols-2">
+        <div class="video">
+          <iframe src="https://www.youtube.com/embed/your-video-id" title="Dead Rising (Official Video)" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope     </div>
+    </div>
+  </section>
 
-    <!-- Statcounter (contatore visite) -->
-    <script type="text/javascript">
-    var sc_project=12960820; 
-    var sc_invisible=1; 
-    var sc_security="5e3b2d89"; 
-    </script>
-    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+  <!-- Tour -->
+  <section id="tour">
+    <div class="container">
+      <h2>Tour</h2>
+      <div class="card">
+        <table aria-label="Tour dates">
+          <thead>
+            <tr><th>Date</th><th>City</th><th>Venue</th><th>Tickets</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Jan 12, 2026</td><td>Milan, IT</td><td>Live Club</td><td>https://tickets.example/milanBuy</a></td></tr>
+            <tr><td>Jan 19, 2026</td><td>Munich, DE</td><td>Backstage</td><td>https://tickets.example/munichBuy</a></td></tr>
+            <tr><td>Jan 26, 2026</td><td>Paris, FR</td><td>La Machine</td><td><span class="soldout">Sold Out</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Sblocca audio al primo tocco/clic (obbligatorio sui mobile)
-        document.body.addEventListener('touchstart', unlockAudio, { once: true });
-        document.body.addEventListener('click', unlockAudio, { once: true });
+  <!-- Gallery -->
+  <section id="gallery">
+    <div class="container">
+      <h2>Gallery</h2>
+      <div class="gallery" aria-live="polite">
+        assets/live-1.jpg
+        assets/live-2.jpg
+        assets/live-3.jpg
+        assets/studio-1.jpg
+        assets/studio-2.jpg
+        assets/studio-3.jpg
+      </div>
+    </div>
+  </section>
 
-        function unlockAudio() {
-            document.getElementById('demonic-whispers').play().catch(() => {});
-            document.getElementById('deep-whispers').play().catch(() => {});
-            document.getElementById('hell-wind').play().catch(() => {});
-        }
+  <!-- Merch -->
+  <section id="merch">
+    <div class="container">
+      <h2>Merch</h2>
+      <div class="grid cols-3">
+        <div class="card">
+          assets/merch-shirt.jpg
+          <h3>Rise of the Damned Tee</h3>
+          <p style="color:var(--muted)">Sizes S–XXL • Black</p>
+          https://your-store.example/item/teeBuy</a>
+        </div>
+        <div class="card">
+          assets/merch-hoodie.jpg
+          <h3>Vengeful Hoodie</h3>
+          <p style="color:var(--muted)">Limited edition</p>
+          https://your-store.example/item/hoodieBuy</a>
+        </div>
+        <div class="card">
+          assets/merch-poster.jpg
+          <h3>Crimson Veil Poster</h3>
+          <p style="color:var(--muted)">A2 • High-quality print</p>
+          https://your-store.example/item/posterBuy</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        // Countdown al 01/01/2026
-        const targetDate = new Date("2026-01-01T00:00:00Z").getTime();
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
+  <!-- News / Newsletter -->
+  <section id="news">
+    <div class="container grid cols-2">
+      <div>
+        <h2>News</h2>
+        <div class="card">
+          <h3>Album Release</h3>
+          <p>“Rise of the Damned” arrives on January 1, 2026. Pre-save now and embrace the chaos.</p>
+        </div>
+        <div class="card">
+          <h3>New Single</h3>
+          <p><em>Dead Rising</em> out now on all platforms. Watch the official video on YouTube.</p>
+        </div>
+      </div>
+      <div>
+        <h2>Newsletter</h2>
+        <div class="card">
+          <form id="newsletter" aria-label="Newsletter form">
+            <input type="email" name="email" placeholder="Your email" required />
+            <select name="freq">
+              <option value="monthly">Monthly updates</option>
+              <option value="tour">Tour only</option>
+              <option value="all">All news</option>
+            </select>
+            <button class="btn primary" type="submit">Subscribe</button>
+            <small style="color:var(--muted)">We respect your privacy.</small>
+          </form>
+          <div id="news-success" role="status" style="display:none; margin-top:8px; color:#a0ffb0">Subscribed! Check your inbox.</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            if (distance < 0) {
-                document.getElementById("countdown").innerHTML = "MISERY UNLEASHED";
-                document.querySelector("p").innerHTML = "Non c'è salvezza";
-                return;
-            }
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container grid cols-2">
+      <div>
+        <h2>Contact & Booking</h2>
+        <div class="card">
+          <p>For booking, press and collaborations:</p>
+          <p><strong>Email:</strong> mailto:booking@vengefulmisery.combooking@vengefulmisery.com</a></p>
+          <p><strong>Management:</strong> Dark Moon Agency</p>
+        </div>
+      </div>
+      <div>
+        <h2>Message the Band</h2>
+        <div class="card">
+          <form id="contact-form" aria-label="Contact form">
+            <input type="text" name="name" placeholder="Your name" required />
+            <input type="email" name="email" placeholder="Your email" required />
+            <textarea name="message" rows="5" placeholder="Your message" required></textarea>
+            <button class="btn primary" type="submit">Send</button>
+          </form>
+          <div id="contact-success" role="status" style="display:none; margin-top:8px; color:#a0ffb0">Message sent! We’ll get back to you.</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            const days = Math.floor(distance / 86400000);
-            const hours = Math.floor((distance % 86400000) / 3600000);
-            const minutes = Math.floor((distance % 3600000) / 60000);
-            const seconds = Math.floor((distance % 60000) / 1000);
+  <footer>
+    <div class="container">
+      <div style="font-family:'Creepster',cursive; color:var(--red)">VENGEFUL MISERY</div>
+      <small>© 2025 Vengeful Misery. All rights reserved.</small>
+    </div>
+  </footer>
 
-            document.getElementById("countdown").innerHTML = 
-                `${days}<span style="opacity:0.3"> : </span>` +
-                `${hours.toString().padStart(2, '0')}<span style="opacity:0.3"> : </span>` +
-                `${minutes.toString().padStart(2, '0')}<span style="opacity:0.3"> : </span>` +
-                `${seconds.toString().padStart(2, '0')}`;
-        }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+  <script>
+    // Countdown to 01/01/2026 00:00:00 UTC
+    const targetUtc = Date.UTC(2026, 0, 1, 0, 0, 0);
+    const cdEl = document.getElementById('countdown');
+    function fmt(n){return n.toString().padStart(2,'0')}
+    function tick(){
+      const d = targetUtc - Date.now();
+      if (d <= 0){ cdEl.textContent = 'MISERY UNLEASHED'; return; }
+      const days = Math.floor(d/86400000);
+      const hours = Math.floor((d%86400000)/3600000);
+      const mins  = Math.floor((d%3600000)/60000);
+      const secs  = Math.floor((d%60000)/1000);
+      cdEl.textContent = `${days} : ${fmt(hours)} : ${fmt(mins)} : ${fmt(secs)}`;
+    }
+    setInterval(tick,1000); tick();
 
-        // Aggiorna contatore visite visibile
-        setInterval(() => {
-            if (typeof sc_hits !== 'undefined') {
-                document.getElementById('visitor-number').textContent = sc_hits;
-            }
-        }, 3000);
+    // Newsletter (front-end demo)
+    const newsForm = document.getElementById('newsletter');
+    const newsOk = document.getElementById('news-success');
+    newsForm.addEventListener('submit',(e)=>{
+      e.preventDefault();
+      // TODO: integra con Mailchimp/SendGrid
+      newsOk.style.display='block';
+      newsForm.reset();
+      setTimeout(()=>newsOk.style.display='none',4000);
+    });
 
-        // Fiamme infernali (ottimizzate per mobile)
-        const canvas = document.createElement('canvas');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        document.getElementById('hell-flames').appendChild(canvas);
-        const ctx = canvas.getContext('2d');
+    // Contact form (front-end demo)
+    const contactForm = document.getElementById('contact-form');
+    const contactOk = document.getElementById('contact-success');
+    contactForm.addEventListener('submit',(e)=>{
+      e.preventDefault();
+      // TODO: integra backend (EmailJS, Netlify Forms, server)
+      contactOk.style.display='block';
+      contactForm.reset();
+      setTimeout(()=>contactOk.style.display='none',4000);
+    });
 
-        const flameCount = window.innerWidth < 768 ? 50 : 100; // meno fiamme sui cellulari
-        const flames = [];
-        for (let i = 0; i < flameCount; i++) {
-            flames.push({
-                x: Math.random() * canvas.width,
-                y: canvas.height + 150,
-                height: 150 + Math.random() * 300,
-                speed: 0.8 + Math.random() * 1.5,
-                opacity: 0.3 + Math.random() * 0.4
-            });
-        }
-
-        function drawFlames() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            flames.forEach(flame => {
-                const gradient = ctx.createLinearGradient(flame.x, canvas.height, flame.x, canvas.height - flame.height);
-                gradient.addColorStop(0, `rgba(255, 80, 0, ${flame.opacity})`);
-                gradient.addColorStop(0.3, `rgba(255, 40, 0, ${flame.opacity * 0.8})`);
-                gradient.addColorStop(0.7, `rgba(200, 0, 0, ${flame.opacity * 0.5})`);
-                gradient.addColorStop(1, `rgba(80, 0, 0, 0)`);
-                ctx.fillStyle = gradient;
-                ctx.fillRect(flame.x - 40, canvas.height - flame.height, 80, flame.height);
-
-                flame.y -= flame.speed;
-                if (flame.y < -150) {
-                    flame.y = canvas.height + 150;
-                    flame.x = Math.random() * canvas.width;
-                }
-            });
-            requestAnimationFrame(drawFlames);
-        }
-        drawFlames();
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-
-        // Teschi e sangue (meno frequenti su mobile per prestazioni)
-        const skullInterval = window.innerWidth < 768 ? 1000 : 600;
-        setInterval(() => {
-            const skull = document.createElement("div");
-            skull.className = "skull";
-            skull.textContent = "💀";
-            skull.style.left = Math.random() * 100 + "vw";
-            skull.style.animationDuration = 12 + Math.random() * 12 + "s";
-            document.body.appendChild(skull);
-            setTimeout(() => skull.remove(), 30000);
-        }, skullInterval);
-
-        setInterval(() => {
-            const drip = document.createElement("div");
-            drip.className = "blood-drip";
-            drip.style.left = Math.random() * 100 + "vw";
-            document.body.appendChild(drip);
-            setTimeout(() => drip.remove(), 7000);
-        }, 1000);
-    </script>
+    // Gallery modal
+    const modal = document.createElement('div'); modal.className='modal'; modal.innerHTML='<div class="modal-inner"><img alt=""><button class="btn">Close</button></div>';
+    document.body.appendChild(modal);
+    const modalImg = modal.querySelector('img');
+    const modalBtn = modal.querySelector('button');
+    document.querySelectorAll('.gallery img').forEach(img=>{
+      img.addEventListener('click',()=>{
+        modalImg.src = img.src;
+        modal.style.display='block';
+      });
+    });
+    modalBtn.addEventListener('click',()=> modal.style.display='none');
+    modal.addEventListener('click',(e)=>{ if(e.target===modal) modal.style.display='none'; });
+  </script>
 </body>
 </html>
